@@ -1,0 +1,69 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "title",
+          "placeholder" : "noticias"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "choices" : {
+            "noticia" : {
+              "type" : "Slice",
+              "fieldset" : "Noticia",
+              "description" : "Añadir nueva noticia",
+              "icon" : "note_add",
+              "display" : "grid",
+              "non-repeat" : {
+                "article_header" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "article header",
+                    "placeholder" : "Título de la noticia"
+                  }
+                },
+                "article_image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "article image"
+                  }
+                },
+                "news_portal" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                    "label" : "news_portal",
+                    "placeholder" : "Medio en el que fue publicada originalmente"
+                  }
+                },
+                "article_excerpt" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                    "label" : "article excerpt",
+                    "placeholder" : "Detalle de la noticia"
+                  }
+                },
+                "article_link" : {
+                  "type" : "Link",
+                  "config" : {
+                    "label" : "article link",
+                    "placeholder" : "Link a la noticia original"
+                  }
+                }
+              },
+              "repeat" : { }
+            }
+          }
+        }
+      }
+    }
+  }

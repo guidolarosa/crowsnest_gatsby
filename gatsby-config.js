@@ -7,6 +7,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: 'crowsnest',
+        schemas: {
+           colorGrading: require("./custom_types/color-grading.json"),
+           noticias: require("./custom_types/noticias.json")
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

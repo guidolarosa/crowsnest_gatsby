@@ -1,29 +1,57 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import styled, {ThemeProvider} from 'styled-components';
+import theme from './../utils/theme';
+import { Helmet } from 'react-helmet';
+import Header from '../common/Header';
+import Hero from './components/Hero';
+// import Button from '../components/Button'
+import "../styles/layout.css";
+import "../styles/globals.scss";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { graphql } from 'gatsby';
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const document = data;
+  console.log(document);
+  return (
+    <ThemeProvider theme={theme}>
+      <StyledIndexPage>
+          <Helmet>
+            <title>Crows Nest - Professional Color Grading</title>
+          </Helmet>
+          <Header>
+            <Hero />
+          </Header>
+      </StyledIndexPage>
+    </ThemeProvider>
+  )
+}
 
-export default IndexPage
+
+export default IndexPage;
+
+const StyledIndexPage = styled.section`
+  background: ${(props) => (props.theme.background)};
+  header {
+    height: 90vh;
+  }
+`;
+
+export const query = graphql`
+  query ColorGrading {
+    allPrismicColorGradingBodyAnadirContenido {
+      edges {
+        node {
+          primary {
+            product_title {
+              raw
+            }
+            product_thumbnail {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
