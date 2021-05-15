@@ -9,7 +9,7 @@ const VideoSlider = (props) => {
     const pages = [];
 
     let i, j, temparray, chunk = 8;
-    for (i = 0, j = content.length; i < j; i += chunk) {
+    for (i = 0, j = content?.length; i < j; i += chunk) {
         temparray = content.slice(i, i + chunk);
         pages.push(temparray);
     };
