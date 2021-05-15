@@ -33,8 +33,9 @@ export default AboutPage;
 
 const StyledAboutPage = styled.section`
   background: ${(props) => (props.theme.background)};
+  min-height: 100vh;
   .about-us-content {
-    margin-top: 32px;
+    margin-top: 64px;
     p {
       font-weight: 200;
       font-size: 22px;

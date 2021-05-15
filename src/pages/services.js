@@ -15,5 +15,5 @@ const ServicesPage = () => (
 export default ServicesPage;
 
 const StyledServicesPage = styled.section`
-  background: ${(props) => (props.theme.background)};
+    background: ${(props) => (props.theme.background)};
 `;
