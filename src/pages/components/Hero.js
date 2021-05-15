@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import Container from '../../common/Container';
 import Button from '../../common/Button';
 import backgroundImage from '../../images/hero_background.png';
@@ -32,6 +32,19 @@ const Hero = () => {
     )
 };
 
+const fadeUp = keyframes`
+    from {
+        top: 100px;
+        opacity: 0;
+        filter: blur(10px)
+    }
+    to {
+        top: 0;
+        opacity: 1;
+        filter: blur(0)
+    }
+`;
+
 const StyledHero = styled(Container)`
     background: ${(props) => (props.theme.accent)};
     flex-grow: 1;
@@ -53,6 +66,9 @@ const StyledHero = styled(Container)`
         margin-top: 80px;
         border-radius: 5px;
         backdrop-filter: blur(10px);
+        animation: 1s ${fadeUp} forwards .5s;
+        opacity: 0;
+        position: relative;
         h1 {
             font-size: 64px;
             font-weight: 200;
