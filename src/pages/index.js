@@ -8,6 +8,8 @@ import "../styles/layout.css";
 import "../styles/globals.scss";
 import Container from './../common/Container';
 import VideoSlider from './components/VideoSlider';
+import Title from './../common/Title';
+import {videoContentColors} from './../utils/UIConstants';
 
 import { graphql } from 'gatsby';
 
@@ -23,22 +25,22 @@ const IndexPage = ({ data }) => {
     {
       title: 'Largometrajes',
       content: largometrajes,
-      contentColor: '#fff',
+      contentColor: videoContentColors.largometrajes,
     },
     {
       title: 'Series',
       content: series,
-      contentColor: '#fff',
+      contentColor: videoContentColors.series,
     },
     {
       title: 'Videoclips',
       content: videoclips,
-      contentColor: '#fff',
+      contentColor: videoContentColors.videoclips,
     },
     {
       title: 'Comerciales',
       content: comerciales,
-      contentColor: '#fff',
+      contentColor: videoContentColors.comerciales,
     },
   ]
 
@@ -53,9 +55,7 @@ const IndexPage = ({ data }) => {
           </Header>
           <main>
             <Container size="medium">
-              <div className="title-container">
-                <h1>Nuestros trabajos</h1>
-              </div>
+              <Title tag={'h1'} content={'Nuestros trabajos'} />
               {videoSliders.map((videoSlider) => (
                 <VideoSlider
                   title={videoSlider.title}
@@ -81,9 +81,6 @@ const StyledIndexPage = styled.section`
   main {
     margin-top: 64px;
     padding-bottom: 100px;
-    h1 {
-      font-size: 42px;
-    }
   }
 `;
 

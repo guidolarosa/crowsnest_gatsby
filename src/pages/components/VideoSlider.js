@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from 'styled-components';
 import Container from '../../common/Container';
+import Modal from '../../common/Modal';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
@@ -17,8 +18,9 @@ const VideoSlider = (props) => {
     console.log(pages);
 
     return (
-        <StyledVideoSlider size="medium">
+        <StyledVideoSlider size="medium" contentColor={contentColor}>
             <div className="video-slider-title">
+                <div className="circle-decoration"></div>
                 <h2>{title}</h2>
             </div>
             <div className="slider-controls">
@@ -48,6 +50,10 @@ const VideoSlider = (props) => {
                     </div>
                 ))}
             </div>
+            <Modal 
+                content={content}
+                className="video-content-modal" 
+            />
         </StyledVideoSlider>
     )
 };
@@ -56,10 +62,10 @@ const StyledVideoSlider = styled(Container)`
     margin-bottom: 48px;
     position: relative;
     .video-slider-title {
-        background: ${(props) => (props.theme.lightBlack)};
+        background: ${(props) => (props.theme.grey300)};
         display: inline-block;
         border-radius: 100px;
-        padding: 2px 16px;
+        padding: 0 8px;
         margin-bottom: 16px;
         height: 31px;
         display: inline-flex;
@@ -68,6 +74,13 @@ const StyledVideoSlider = styled(Container)`
             margin: 0;
             font-size: 18px;
             font-weight: 200;
+        }
+        .circle-decoration {
+            width: 12px;
+            height: 12px;
+            border-radius: 50px;
+            background: ${(props) => (props.contentColor)};
+            margin-right: 6px;
         }
     }
     .slider-controls {
@@ -86,7 +99,7 @@ const StyledVideoSlider = styled(Container)`
                 filter: drop-shadow(0 0 8px black);
             }
             svg {
-                fill: ${(props) => (props.theme.accent)};
+                fill: ${(props) => (props.theme.grey300)};
             }
             &.left {
                 left: -60px;
