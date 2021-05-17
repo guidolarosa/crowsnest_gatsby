@@ -1,9 +1,11 @@
 import * as React from "react"
 import styled, {ThemeProvider} from 'styled-components';
+import {Helmet} from 'react-helmet';
 import theme from './../utils/theme';
 import Header from '../common/Header';
 import Container from './../common/Container';
 import Title from './../common/Title';
+import AssociateCard from './components/AssociateCard'
 import Footer from './../common/Footer';
 
 const AboutPage = () => {
@@ -40,6 +42,9 @@ const AboutPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <StyledAboutPage>
+          <Helmet>
+            <title>Crows Nest - Professional Color Grading | Nosotros</title>
+          </Helmet>
           <Header>
           </Header>
           <Container size={'medium'}>
@@ -60,15 +65,7 @@ const AboutPage = () => {
                 <Title className={'associates-title'} content={'Nosotros'} />
                 <section className={'associates-list'}>
                   {associateData.map((associate) => (
-                    <section className={'associate-card'}>
-                      <div className="associate-image" style={{backgroundImage: `url(${associate.image})`}}></div>
-                      <div className={'associate-details'}>
-                        <div className="associate-name">{associate.name}</div>
-                        <div className="associate-bio">
-                          {associate.bioContent.map((bioParagraph) => (bioParagraph))}
-                        </div>
-                      </div>
-                    </section>
+                    <AssociateCard content={associate}/>
                   ))}
                 </section>
               </section>
@@ -107,47 +104,6 @@ const StyledAboutPage = styled.section`
     .associates-list {
       display: flex;
       flex-direction: column;
-      .associate-card {
-        padding: 32px;
-        background: ${(props) => (props.theme.grey600)};
-        margin-bottom: 24px;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0,0,0, .2);
-        display: flex;
-        overflow: hidden;
-        max-height: 280px;
-        .associate-image {
-          min-width: 120px;
-          height: 120px;
-          border-radius: 60px;
-          background: ${(props) => (props.theme.blue)};
-        }
-        .associate-details {
-          padding-left: 24px;
-          .associate-name {
-            font-size: 32px;
-            margin-bottom: 24px;
-            position: relative;
-            &:after {
-              width: 64px;
-              height: 1px;
-              background: ${(props) => (props.theme.accent)};
-              content: '';
-              bottom: -12px;
-              left: 0;
-              position: absolute;
-            }
-          }
-          .associate-bio {
-            p {
-              font-weight: 200;
-              opacity: .7;
-              font-size: 20px;
-              line-height: 32px;
-            }
-          }
-        }
-      }
     }
   }
 `;

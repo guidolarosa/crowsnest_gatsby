@@ -9,7 +9,9 @@ const Navbar = (props) => {
     return (
         <StyledNavbar size={'full'} className="navbar">
             <Container className="navbar-content" size={'medium'}>
-                <Logo />
+                <Link to={'/'} className={'logo-link'}>
+                    <Logo />
+                </Link>
                 <nav>
                     <ul>
                         {navigation.map((link) => (
@@ -41,6 +43,9 @@ const StyledNavbar = styled(Container)`
         justify-content: space-between;
         height: inherit;
         align-items: center;
+        .logo-link {
+            text-decoration: none;
+        }
         nav {
             @media screen and (max-width: 920px) {
                 display: none;
