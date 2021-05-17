@@ -8,11 +8,11 @@ const AssociateCard = (props) => {
 
     return (
         <StyledAssociateCard className={'associate-card'} isExpanded={isExpanded}>
-            <div className="associate-image" style={{backgroundImage: `url(${content.image})`}}></div>
+            <div className="associate-image" style={{backgroundImage: `url(${content?.image})`}}></div>
             <div className={'associate-details'}>
-                <div className="associate-name">{content.name}</div>
+                <div className="associate-name">{content?.name}</div>
                 <div className="associate-bio">
-                    {content.bioContent.map((bioParagraph) => (bioParagraph))}
+                    {content?.bioContent.map((bioParagraph) => (bioParagraph))}
                 </div>
             </div>
             <div className={'expand-control'} onClick={() => {setIsExpanded(!isExpanded)}}>
