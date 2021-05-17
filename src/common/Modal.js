@@ -2,13 +2,13 @@
 import React, {useEffect} from "react";
 import styled from 'styled-components';
 import Vimeo from '@u-wave/react-vimeo';
-import {AiOutlineClose} from 'react-icons/ai';
+import {IoCloseSharp} from 'react-icons/io5';
 
 const Modal = (props) => {
     const {show, onClose, className, content} = props;
 
-    const title = content?.primary.product_title[0].text;
-    const year = content?.primary.product_year[0].text ? content.primary.product_year[0].text : null;
+    const title = content?.primary.product_title[0]?.text;
+    const year = content?.primary.product_year[0]?.text ? content.primary.product_year[0].text : null;
     const vimeoID = content?.primary.product_vimeo_id[0].text;
 
     return (
@@ -17,9 +17,9 @@ const Modal = (props) => {
                 <div className="modal-header">
                     <h3>
                         {title}
-                        {year && <span>{year}</span>}
+                        {year && <span className="year">{year}</span>}
                     </h3>
-                    <AiOutlineClose onClick={() => {onClose()}}/>
+                    <IoCloseSharp onClick={() => {onClose()}}/>
                 </div>
                 <div className="modal-body">
                     {vimeoID && (
@@ -43,21 +43,31 @@ const StyledModal = styled.div`
     z-index: 1;
     .modal {
         width: 960px;
-        min-height: 680px;
         background: black;
         margin: 118px auto 0;
         .modal-header {
-            padding: 18px;
+            padding: 12px 18px;
             position: relative;
             display: flex;
             justify-content: space-between;
+            background: ${(props) => (props.theme.grey600)};
             h3 {
                 margin: 0;
                 font-weight: 400;
+                .year {
+                    margin-left: 8px;
+                    font-size: 16px;
+                    opacity: .5;
+                }
             }
             svg {
                 fill: white;
                 font-size: 28px;
+                cursor: pointer;
+                opacity: .7;
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
         .modal-body {
