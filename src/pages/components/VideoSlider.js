@@ -1,12 +1,15 @@
-import * as React from "react";
+import React, {useState, useEffect} from "react";
 import styled from 'styled-components';
 import Container from '../../common/Container';
 import Modal from '../../common/Modal';
+import VideoItem from './VideoItem';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
 const VideoSlider = (props) => {
     const { title, content, contentColor } = props;
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const pages = [];
 
     let i, j, temparray, chunk = 8;
@@ -15,7 +18,21 @@ const VideoSlider = (props) => {
         pages.push(temparray);
     };
 
-    console.log(pages);
+    // console.log(pages);
+
+    const handleItemSelect = (item) => {
+        console.log(item);
+        setSelectedItem(item);
+        setIsModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    }
+
+    useEffect(() => {
+        console.log(selectedItem);
+    }, [selectedItem])
 
     return (
         <StyledVideoSlider size="medium" contentColor={contentColor}>
@@ -36,23 +53,20 @@ const VideoSlider = (props) => {
                     <div className="slider-page">
                         {productPage.map((item) => {
                             return (
-                                <div 
-                                    style={{backgroundImage: `url(${item.primary.product_thumbnail.url})`}} 
-                                    className="slider-item"
-                                >
-                                    <div className="product-overlay">
-                                        <h3>{item.primary.product_title[0].text}</h3>
-                                        <p>{item.primary.product_year[0]?.text}</p>
-                                    </div>
-                                </div>
+                                <VideoItem 
+                                    content={item} 
+                                    onClick={handleItemSelect}
+                                />
                             )
                         })}
                     </div>
                 ))}
             </div>
             <Modal 
-                content={content}
-                className="video-content-modal" 
+                content={selectedItem}
+                className="video-content-modal"
+                show={isModalOpen}
+                onClose={handleModalClose}
             />
         </StyledVideoSlider>
     )
@@ -116,62 +130,6 @@ const StyledVideoSlider = styled(Container)`
             display: flex;
             flex-wrap: nowrap;
             min-width: 100%;
-            .slider-item {
-                min-width: calc(25% - 8px);
-                background: black;
-                margin: 0 10px 0 0;
-                border-radius: 10px;
-                height: 140px;
-                background-size: 150%;
-                background-position: center;
-                box-shadow: 0 1px 1px 0 rgba(0,0,0,.7);
-                position: relative;
-                cursor: pointer;
-                overflow: hidden;
-                &:hover {
-                    .product-overlay {
-                        opacity: 1;
-                        h3,p {
-                            opacity: 1;
-                            filter: blur(0);
-                        }
-                    }
-                }
-                .product-overlay {
-                    padding: 16px;
-                    opacity: 0;
-                    pointer-events: none;
-                    background: rgba(0,0,0,.5);
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    transition: ease-in-out 0.3s all;
-                    h3, p {
-                        position: relative;
-                        transition: ease-in-out 0.2s all;
-                        transition-delay: .2s;
-                        opacity: 0;
-                        filter: blur(10px)
-                    }
-                    h3 {
-                        font-weight: 400;
-                        font-size: 24px;
-                        line-height: 28px;
-                        margin: 0;
-                    }
-                    p {
-                        margin: 0;
-                        font-size: 14px;
-                        font-weight: 400;
-                        opacity: 0.5;
-                    }
-                }
-            }
         }
     }
 `;

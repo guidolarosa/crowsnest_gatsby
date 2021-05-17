@@ -14,7 +14,7 @@ const Button = (props) => {
 
     return (
         <StyledButton className={className ? className : null}>
-            {type == 'link' ? (
+            {type === 'link' ? (
                 <Link to={href}>{label}</Link>
             ) : (
                 <button type={'button'} onClick={onClick} value={label} />

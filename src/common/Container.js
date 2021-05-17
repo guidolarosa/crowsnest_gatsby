@@ -31,7 +31,7 @@ Container.propTypes = {
 Container.defaultProps = {
     size: 'full',
     width: null,
-    flex: true,
+    flex: false,
     paddingSize: 'medium',
     align: 'center',
     children: (<p className="empty-message">Empty container</p>),
@@ -100,6 +100,7 @@ const StyledContainer = styled.div`
     width: ${(props) => (handleWidth(props))};
     padding: ${(props) => (handlePadding(props))};
     margin: ${(props) => (handleAlignment(props))};
+    display: ${(props) => (props.flex ? 'flex' : 'block')};
     .empty-message {
         opacity: .6;
     }

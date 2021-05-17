@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import "../styles/layout.css";
 import "../styles/globals.scss";
 import Container from './../common/Container';
+import Footer from './../common/Footer';
 import VideoSlider from './components/VideoSlider';
 import Title from './../common/Title';
 import {videoContentColors} from './../utils/UIConstants';
@@ -65,6 +66,7 @@ const IndexPage = ({ data }) => {
               ))}
             </Container>
           </main>
+          <Footer />
       </StyledIndexPage>
     </ThemeProvider>
   )
