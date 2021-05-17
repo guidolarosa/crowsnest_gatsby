@@ -40,7 +40,7 @@ const VideoSlider = (props) => {
         if (isSliderGoingLeft) {
             interval = setInterval(() => {
                 console.log()
-                sliderContainerRef.current.scrollBy(5, 0);
+                sliderContainerRef.current.scrollBy(10, 0);
             }, 1000 / 24)
         }
         return () => clearInterval(interval)
@@ -51,7 +51,7 @@ const VideoSlider = (props) => {
         if (isSliderGoingRight) {
             interval = setInterval(() => {
                 console.log()
-                sliderContainerRef.current.scrollBy(-5, 0);
+                sliderContainerRef.current.scrollBy(-10, 0);
             }, 1000 / 24)
         }
         return () => clearInterval(interval)
@@ -66,15 +66,15 @@ const VideoSlider = (props) => {
             <div className="slider-controls">
                 <div 
                     className="slider-button left" 
-                    onMouseEnter={() => {setIsSliderGoingLeft(true)}}
-                    onMouseLeave={() => {setIsSliderGoingLeft(false)}}
+                    onMouseEnter={() => {setIsSliderGoingRight(true)}}
+                    onMouseLeave={() => {setIsSliderGoingRight(false)}}
                 >
                     <IoIosArrowDropleftCircle/>
                 </div>
                 <div 
                     className="slider-button right"
-                    onMouseEnter={() => {setIsSliderGoingRight(true)}}
-                    onMouseLeave={() => {setIsSliderGoingRight(false)}}>
+                    onMouseEnter={() => {setIsSliderGoingLeft(true)}}
+                    onMouseLeave={() => {setIsSliderGoingLeft(false)}}>
                     <IoIosArrowDroprightCircle/>
                 </div>
             </div>
