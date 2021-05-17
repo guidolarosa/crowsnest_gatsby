@@ -7,12 +7,13 @@ import Container from './../common/Container';
 import Title from './../common/Title';
 import AssociateCard from './components/AssociateCard'
 import Footer from './../common/Footer';
+import eduSierraPic from '../images/edu_sierra.webp';
 
 const AboutPage = () => {
   const associateData = [
     {
       name: 'Laura Viviani',
-      image: 'images/edu_sierra.webp',
+      image: eduSierraPic,
       bioContent: [
         <p>Pionera en Intermedio Digital en el país, y prolífera colorista de cine digital con infinidad de producciones cinematográficas y publicitarias en su currículum. Es socia fundadora de la Asociación Argentina de Coloristas Audiovisuales (AAC).</p>,
         <p>Es la instructora oficial de Assimilate Scratch en la Argentina y docente de Manejo del Color en Postproducción en la ENERC.</p>,
@@ -21,7 +22,7 @@ const AboutPage = () => {
     },
     {
       name: 'Edu Sierra',
-      image: './../images/gatsby-astronaut.png',
+      image: eduSierraPic,
       bioContent: [
         <p>Es el colorista con mayor experiencia profesional en actividad de la Argentina. Su experiencia inicial fue en laboratorio cinematográfico y es uno de los primeros coloristas en transfer de película a video en Argentina; su trabajo se combina entre su desempeño en Intermedio Digital (DI ) y las últimas tecnologías de corrección de color de cinematografía digital. Su currículum posee innumerables realizaciones cinematográficas y publicitarias.</p>,
         <p>Fundador de Cinefoto, el primer medio digital sobre divulgación tecnológica e intercambio de experiencias profesionales de Argentina.</p>,
@@ -32,7 +33,7 @@ const AboutPage = () => {
     },
     {
       name: 'Fernando Rivas',
-      image: './images/edu_sierra.webp',
+      image: eduSierraPic,
       bioContent: [
         <p>Colorista referente del departamento Color Grading de Telefe/VIACOM Argentina, formador de los coloristas de la empresa, e instructor de Davinci Resolve y docente del curso de Cine Digital en el centro de formación y laboratorio PuntoCINE. Es socio fundador de la Asociación Argentina de Coloristas Audiovisuales (AAC). Como docente también ha dictado talleres y cursos de color en la Universidad de las Americas (Chile), en el Taller de Oficios Audiovisuales del Uruguay (TOA) y en la UNICEN (Universidad del Centro, Tandil).</p>,
         <p>Cuenta con amplia experiencia tanto en cine como en TV y demas flujos de color grading actuales, como asi tambien en  el montaje de departamentos técnicos de empresas líderes en postproducción de la Argentina como Metrovision, es tambien pionero en el manejo de la tecnologia HDR de la Argentina. Trabajó como consultor y colorista de post productoras como La Posta, UFA! Post y RGB Entertainment entre otros.</p>
@@ -87,7 +88,7 @@ const StyledAboutPage = styled.section`
     p {
       font-weight: 200;
       font-size: 22px;
-      line-height: 30px;
+      line-height: 32px;
       padding-right: 30%;
       opacity: .7;
       strong {
