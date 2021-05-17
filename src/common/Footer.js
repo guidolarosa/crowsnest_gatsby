@@ -17,9 +17,9 @@ const Footer = (props) => {
                     </address>
                 </div>
                 <div className="social-links-container">
-                    <AiOutlineMail/>
-                    <AiOutlineInstagram/>
-                    <AiFillFacebook/>
+                    <AiOutlineMail title={'Mail'}/>
+                    <AiOutlineInstagram title={'Instagram'}/>
+                    <AiFillFacebook title={'Facebook'}/>
                 </div>
             </Container>
         </StyledFooter>
@@ -35,16 +35,22 @@ const StyledFooter = styled(Container)`
             address {
                 margin: 18px 0;
                 font-style: normal;
+                font-size: 14px;
                 .divider {
                     margin: 0 8px;
-                    opacity: 0.3;
+                    color: ${(props) => (props.theme.accent)};
                 }
             }
         }
         .social-links-container {
             svg {
-                margin-left: 8px;
+                cursor: pointer;
+                margin-left: 12px;
                 font-size: 24px;
+                opacity: .7;
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
     }

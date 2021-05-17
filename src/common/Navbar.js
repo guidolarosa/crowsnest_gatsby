@@ -42,6 +42,9 @@ const StyledNavbar = styled(Container)`
         height: inherit;
         align-items: center;
         nav {
+            @media screen and (max-width: 920px) {
+                display: none;
+            }
             ul {
                 display: flex;
                 margin: 0;
@@ -54,9 +57,9 @@ const StyledNavbar = styled(Container)`
                         font-weight: 200;
                         text-transform: capitalize;
                         font-size: 16px;
+                        position: relative;
                         &.active {
                             font-weight: 500;
-                            position: relative;
                             &:after {
                                 content: '';
                                 position: absolute;

@@ -30,10 +30,6 @@ const VideoSlider = (props) => {
         setIsModalOpen(false);
     }
 
-    useEffect(() => {
-        console.log(selectedItem);
-    }, [selectedItem])
-
     return (
         <StyledVideoSlider size="medium" contentColor={contentColor}>
             <div className="video-slider-title">

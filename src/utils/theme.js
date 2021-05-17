@@ -8,7 +8,9 @@ const theme = {
     'red': '#F63E3E',
     'green': '#3BCC49',
     'yellow': '#FFD336',
-    'purple': '#C550EE'
+    'purple': '#C550EE',
+    'gradient_blue': '#313875',
+    'gradient_purple': '#633175'
 };
 
 export default theme;

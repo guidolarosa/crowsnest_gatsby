@@ -3,15 +3,20 @@ import styled from 'styled-components';
 
 const VideoItem = (props) => {
     const {content, onClick} = props;
+
+    const title = content?.primary.product_title[0]?.text;
+    const year = content?.primary.product_year[0]?.text;
+
     return (
         <StyledVideoItem 
+            title={title}
             style={{backgroundImage: `url(${content?.primary.product_thumbnail.url})`}} 
             className="slider-item"
             onClick={() => {onClick(content)}}
         >
             <div className="product-overlay">
-                <h3>{content?.primary.product_title[0]?.text}</h3>
-                <p>{content?.primary.product_year[0]?.text}</p>
+                <h3>{title}</h3>
+                <p>{year}</p>
             </div>
         </StyledVideoItem>
     )
@@ -29,7 +34,9 @@ const StyledVideoItem = styled.div`
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    transition: ease-in-out .2s all;
     &:hover {
+        background-size: 170%;
         .product-overlay {
             opacity: 1;
             h3,p {
@@ -64,6 +71,10 @@ const StyledVideoItem = styled.div`
             font-size: 24px;
             line-height: 28px;
             margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
         }
         p {
             margin: 0;
