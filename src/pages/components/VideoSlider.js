@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import styled from 'styled-components';
 import Container from '../../common/Container';
 import Modal from '../../common/Modal';
@@ -10,6 +10,11 @@ const VideoSlider = (props) => {
     const { title, content, contentColor } = props;
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSliderGoingLeft, setIsSliderGoingLeft] = useState(false);
+    const [isSliderGoingRight, setIsSliderGoingRight] = useState(false);
+    const [sliderPosition, setSliderPosition] = useState(0);
+    const sliderContainerRef = useRef(null);
+
     const pages = [];
 
     let i, j, temparray, chunk = 8;
@@ -28,7 +33,29 @@ const VideoSlider = (props) => {
 
     const handleModalClose = () => {
         setIsModalOpen(false);
-    }
+    };
+
+    useEffect(() => {
+        let interval;
+        if (isSliderGoingLeft) {
+            interval = setInterval(() => {
+                console.log()
+                sliderContainerRef.current.scrollBy(5, 0);
+            }, 1000 / 24)
+        }
+        return () => clearInterval(interval)
+    }, [isSliderGoingLeft]);
+
+    useEffect(() => {
+        let interval;
+        if (isSliderGoingRight) {
+            interval = setInterval(() => {
+                console.log()
+                sliderContainerRef.current.scrollBy(-5, 0);
+            }, 1000 / 24)
+        }
+        return () => clearInterval(interval)
+    }, [isSliderGoingRight]);
 
     return (
         <StyledVideoSlider size="medium" contentColor={contentColor}>
@@ -37,14 +64,21 @@ const VideoSlider = (props) => {
                 <h2>{title}</h2>
             </div>
             <div className="slider-controls">
-                <div className="slider-button left">
+                <div 
+                    className="slider-button left" 
+                    onMouseEnter={() => {setIsSliderGoingLeft(true)}}
+                    onMouseLeave={() => {setIsSliderGoingLeft(false)}}
+                >
                     <IoIosArrowDropleftCircle/>
                 </div>
-                <div className="slider-button right">
+                <div 
+                    className="slider-button right"
+                    onMouseEnter={() => {setIsSliderGoingRight(true)}}
+                    onMouseLeave={() => {setIsSliderGoingRight(false)}}>
                     <IoIosArrowDroprightCircle/>
                 </div>
             </div>
-            <div className="slider-container">
+            <div className="slider-container" ref={sliderContainerRef}>
                 {pages.map((productPage) => (
                     <div className="slider-page">
                         {productPage.map((item) => {
@@ -126,6 +160,7 @@ const StyledVideoSlider = styled(Container)`
             display: flex;
             flex-wrap: nowrap;
             min-width: 100%;
+            margin-right: 8px;
         }
     }
 `;
