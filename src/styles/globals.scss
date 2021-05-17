@@ -1,3 +1,32 @@
+@font-face {
+    font-family: 'Platform';
+    font-style: normal;
+    font-weight: 200;
+    src: url(./../fonts/Platform-Light_0.otf);
+}
+
+@font-face {
+    font-family: Platform;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./../fonts/Platform-Regular_0.otf);
+}
+
+@font-face {
+    font-family: Platform;
+    font-style: normal;
+    font-weight: 500;
+    src: url(./../fonts/Platform-Medium_0.otf);
+}
+
+@font-face {
+    font-family: Platform;
+    font-style: normal;
+    font-weight: 600;
+    src: url(./../fonts/Platform-Bold_0.otf);
+}
+
+
 * {
     color: white;
     font-family: 'Platform'
