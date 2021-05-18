@@ -16,17 +16,15 @@ const VideoItem = (props) => {
         >
             <div className="product-overlay">
                 <h3>{title}</h3>
-                <p>{year}</p>
+                {/* <span className={'year-badge'}>{year}</span> */}
             </div>
         </StyledVideoItem>
     )
 };
 
 const StyledVideoItem = styled.div`
-    min-width: calc(25% - 8px);
     background: black;
-    margin: 0 10px 0 0;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 140px;
     background-size: 150%;
     background-position: center;
@@ -34,53 +32,63 @@ const StyledVideoItem = styled.div`
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    transition: ease-in-out .2s all;
+    transition: ease-in-out .1s all;
+    border: 0px solid ${(props) => (props.theme.accent)};
     &:hover {
-        background-size: 170%;
+        border: 3px solid ${(props) => (props.theme.accent)};
         .product-overlay {
+            background: linear-gradient(0deg, ${(props) => (props.theme.accent)}, transparent 50%);
             opacity: 1;
-            h3,p {
+            h3, .year-badge {
                 opacity: 1;
                 filter: blur(0);
             }
         }
     }
     .product-overlay {
-        padding: 16px;
-        opacity: 0;
+        padding: 8px;
+        /* opacity: 0; */
         pointer-events: none;
-        background: rgba(0,0,0,.5);
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 0;
+        bottom: -1px;
         left: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: baseline;
         transition: ease-in-out 0.3s all;
-        h3, p {
+        background: linear-gradient(0deg, rgba(0,0,0,.8), transparent 50%);
+        h3, .year-badge {
             position: relative;
             transition: ease-in-out 0.2s all;
             transition-delay: .2s;
-            opacity: 0;
-            filter: blur(10px)
+            /* opacity: 0; */
+            /* filter: blur(10px) */
         }
         h3 {
             font-weight: 400;
-            font-size: 24px;
-            line-height: 28px;
+            font-size: 16px;
+            line-height: 20px;
             margin: 0;
+            margin-top: auto;
+            /* margin-bottom: 8px; */
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;  
             overflow: hidden;
         }
-        p {
+        .year-badge {
             margin: 0;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
-            opacity: 0.5;
+            display: inline-block;
+            color: white;
+            background: ${(props) => (props.theme.accent)};
+            border-radius: 30px;
+            padding: 0 10px;
+            line-height: 16px;
+
         }
     }
 `;

@@ -3,27 +3,44 @@ import styled from 'styled-components';
 import Container from '../../common/Container';
 import Modal from '../../common/Modal';
 import VideoItem from './VideoItem';
+import $ from 'jquery';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
 const VideoSlider = (props) => {
     const { title, content, contentColor } = props;
+
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isSliderGoingLeft, setIsSliderGoingLeft] = useState(false);
-    const [isSliderGoingRight, setIsSliderGoingRight] = useState(false);
-    const [sliderPosition, setSliderPosition] = useState(0);
+    const [pageWidth, setPageWidth] = useState(null);
+    const [pages, setPages] = useState(null);
+    const [pageSize, setPageSize] = useState(4);
+    const [sliderTotalPages, setSliderTotalPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+
     const sliderContainerRef = useRef(null);
+    const pageRef = useRef(null);
 
-    const pages = [];
+    useEffect(() => {
+        if (content) {
+            let i, j, temparray, chunk = pageSize, pages = [];
+            for (i = 0, j = content?.length; i < j; i += chunk) {
+                temparray = content.slice(i, i + chunk);
+                pages.push(temparray);
+            };
+            setPages(pages);
+        }
+    }, [content]);
 
-    let i, j, temparray, chunk = 8;
-    for (i = 0, j = content?.length; i < j; i += chunk) {
-        temparray = content.slice(i, i + chunk);
-        pages.push(temparray);
-    };
+    useEffect(() => {
+        if (pages) {
+            setSliderTotalPages(pages.length);
+        }
+    }, [pages]);
 
-    // console.log(pages);
+    useEffect(() => {
+        console.log(currentPage);
+    }, [currentPage])
 
     const handleItemSelect = (item) => {
         console.log(item);
@@ -36,26 +53,29 @@ const VideoSlider = (props) => {
     };
 
     useEffect(() => {
-        let interval;
-        if (isSliderGoingLeft) {
-            interval = setInterval(() => {
-                console.log()
-                sliderContainerRef.current.scrollBy(10, 0);
-            }, 1000 / 24)
+        if (pageRef.current) {
+            const pageWidth = pageRef.current.getBoundingClientRect().width;
+            setPageWidth(pageWidth);
         }
-        return () => clearInterval(interval)
-    }, [isSliderGoingLeft]);
+    }, [pageRef.current]);
+
+    const handleArrowLeft = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    };
+
+    const handleArrowRight = () => {
+        if (currentPage < sliderTotalPages) {
+            setCurrentPage(currentPage + 1)
+        }
+    };
 
     useEffect(() => {
-        let interval;
-        if (isSliderGoingRight) {
-            interval = setInterval(() => {
-                console.log()
-                sliderContainerRef.current.scrollBy(-10, 0);
-            }, 1000 / 24)
-        }
-        return () => clearInterval(interval)
-    }, [isSliderGoingRight]);
+        $(sliderContainerRef.current).stop().animate({
+            scrollLeft: pageWidth * (currentPage - 1)
+        });
+    }, [currentPage])
 
     return (
         <StyledVideoSlider size="medium" contentColor={contentColor}>
@@ -65,22 +85,20 @@ const VideoSlider = (props) => {
             </div>
             <div className="slider-controls">
                 <div 
-                    className="slider-button left" 
-                    onMouseEnter={() => {setIsSliderGoingRight(true)}}
-                    onMouseLeave={() => {setIsSliderGoingRight(false)}}
+                    className={`slider-button left ${currentPage == 1 ? 'disabled' : ''}`} 
+                    onClick={handleArrowLeft}
                 >
                     <IoIosArrowDropleftCircle/>
                 </div>
                 <div 
-                    className="slider-button right"
-                    onMouseEnter={() => {setIsSliderGoingLeft(true)}}
-                    onMouseLeave={() => {setIsSliderGoingLeft(false)}}>
+                    className={`slider-button right ${currentPage == sliderTotalPages ? 'disabled' : ''}`}
+                    onClick={handleArrowRight}>
                     <IoIosArrowDroprightCircle/>
                 </div>
             </div>
             <div className="slider-container" ref={sliderContainerRef}>
-                {pages.map((productPage) => (
-                    <div className="slider-page">
+                {pages?.map((productPage) => (
+                    <div className="slider-page" ref={pageRef}>
                         {productPage.map((item) => {
                             return (
                                 <VideoItem 
@@ -91,6 +109,9 @@ const VideoSlider = (props) => {
                         })}
                     </div>
                 ))}
+            </div>
+            <div className="slider-step-indicators">
+                {currentPage} / {sliderTotalPages}
             </div>
             <Modal 
                 content={selectedItem}
@@ -139,11 +160,15 @@ const StyledVideoSlider = styled(Container)`
             filter: drop-shadow(0 0 1px black);
             transition: ease-in-out 0.2s all;
             cursor: pointer;
+            &.disabled {
+                pointer-events: none;
+                opacity: .5;
+            }
             &:hover {
                 filter: drop-shadow(0 0 8px black);
             }
             svg {
-                fill: ${(props) => (props.theme.grey300)};
+                fill: ${(props) => (props.theme.accent)};
             }
             &.left {
                 left: -60px;
@@ -154,14 +179,22 @@ const StyledVideoSlider = styled(Container)`
         }
     }
     .slider-container {
-        overflow: hidden;
+        overflow-x: hidden;
         display: flex;
         .slider-page {
-            display: flex;
-            flex-wrap: nowrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 100%;
             min-width: 100%;
-            margin-right: 8px;
+            grid-column-gap: 12px;
         }
+    }
+    .slider-step-indicators {
+        margin-top: 8px;
+        font-size: 14px;
+        opacity: .7;
+        display: flex;
+        justify-content: center;
     }
 `;
 

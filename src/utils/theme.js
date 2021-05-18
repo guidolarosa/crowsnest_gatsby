@@ -1,4 +1,8 @@
+import { rgba } from "polished";
+
 const theme = {
+    'black': 'rgba(0,0,0)',
+    'white': 'rgba(255,255,255)',
     'background': '#1F1F1F',
     'grey600': '#303030',
     'grey300': '#4a4545',
