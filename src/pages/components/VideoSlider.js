@@ -78,7 +78,7 @@ const VideoSlider = (props) => {
     }, [currentPage])
 
     return (
-        <StyledVideoSlider size="medium" contentColor={contentColor}>
+        <StyledVideoSlider size="medium" contentColor={contentColor} pageSize={pageSize}>
             <div className="video-slider-title">
                 <div className="circle-decoration"></div>
                 <h2>{title}</h2>
@@ -111,7 +111,7 @@ const VideoSlider = (props) => {
                 ))}
             </div>
             <div className="slider-step-indicators">
-                {currentPage} / {sliderTotalPages}
+                <span className="indicator-labels"><strong>{currentPage}</strong> / {sliderTotalPages}</span>
             </div>
             <Modal 
                 content={selectedItem}
@@ -183,10 +183,10 @@ const StyledVideoSlider = styled(Container)`
         display: flex;
         .slider-page {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(${(props) => (props.pageSize)}, 1fr);
             grid-template-rows: 100%;
             min-width: 100%;
-            grid-column-gap: 12px;
+            grid-column-gap: 4px;
         }
     }
     .slider-step-indicators {
@@ -195,6 +195,11 @@ const StyledVideoSlider = styled(Container)`
         opacity: .7;
         display: flex;
         justify-content: center;
+        .indicator-labels {
+            background: black;
+            padding: 0 10px;
+            border-radius: 20px;
+        }
     }
 `;
 

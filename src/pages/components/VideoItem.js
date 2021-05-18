@@ -24,7 +24,7 @@ const VideoItem = (props) => {
 
 const StyledVideoItem = styled.div`
     background: black;
-    border-radius: 5px;
+    border-radius: 2px;
     height: 140px;
     background-size: 150%;
     background-position: center;
