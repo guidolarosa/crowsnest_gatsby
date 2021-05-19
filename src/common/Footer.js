@@ -60,6 +60,10 @@ const StyledFooter = styled(Container)`
             .address-container {
                 address {
                     font-size: 12px;
+                    display: flex;
+                    .divider {
+                        display: none;
+                    }
                 }
             }
         }

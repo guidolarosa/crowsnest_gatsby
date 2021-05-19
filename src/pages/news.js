@@ -134,6 +134,10 @@ const StyledNewsPage = styled.section`
               background: ${(props) => (props.theme.accent)};
               padding: 0 10px;
               border-radius: 2px;
+              cursor: pointer;
+              &:hover {
+                background: ${(props) => (props.theme.accentLight)}
+              }
             }
           }
         }

@@ -158,9 +158,6 @@ const VideoSlider = (props) => {
 const StyledVideoSlider = styled(Container)`
     margin-bottom: 48px;
     position: relative;
-    @media screen and (max-width: ${breakpoints.s + 'px'}) {
-        width: 80%;
-    }
     .video-slider-title {
         background: ${(props) => (props.theme.grey400)};
         display: inline-block;
@@ -223,7 +220,7 @@ const StyledVideoSlider = styled(Container)`
             min-width: 100%;
             grid-column-gap: 4px;
             @media screen and (max-width: ${(props) => (`${breakpoints.s}px`)}) {
-                grid-template-rows: 200px;
+                grid-template-rows: 170px;
             }
         }
     }
@@ -237,6 +234,20 @@ const StyledVideoSlider = styled(Container)`
             background: black;
             padding: 0 10px;
             border-radius: 20px;
+        }
+    }
+    @media screen and (max-width: ${breakpoints.s + 'px'}) {
+        width: 80%;
+        .slider-controls {
+            .slider-button {
+                font-size: 38px;
+                &.right {
+                    right: -50px;
+                }
+                &.left {
+                    left: -50px;
+                }
+            }
         }
     }
 `;
