@@ -110,7 +110,7 @@ const VideoSlider = (props) => {
     }, [windowWidth])
 
     return (
-        <StyledVideoSlider size="medium" contentColor={contentColor} pageSize={pageSize}>
+        <StyledVideoSlider size="medium" contentColor={contentColor} pageSize={pageSize} className={'video-slider'}>
             <div className="video-slider-title">
                 <div className="circle-decoration"></div>
                 <h2>{title}</h2>
@@ -158,6 +158,9 @@ const VideoSlider = (props) => {
 const StyledVideoSlider = styled(Container)`
     margin-bottom: 48px;
     position: relative;
+    @media screen and (max-width: ${breakpoints.s + 'px'}) {
+        width: 80%;
+    }
     .video-slider-title {
         background: ${(props) => (props.theme.grey400)};
         display: inline-block;

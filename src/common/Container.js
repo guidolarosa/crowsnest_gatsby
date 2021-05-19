@@ -108,7 +108,7 @@ const StyledContainer = styled.div`
     @media screen and (max-width: ${breakpoints.l + 'px'}) {
         width: ${(props) => (props.size == 'full' ? '100%' : '80%')};
     }
-    @media screen and (max-width: ${breakpoints.s}) {
-        width: ${(props) => (props.size == 'full' ? '100%' : '85%')};
+    @media screen and (max-width: ${breakpoints.s + 'px'}) {
+        width: ${(props) => (props.size == 'full' ? '100%' : 'calc(100% - 40px)')};
     }
 `;
