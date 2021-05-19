@@ -49,7 +49,7 @@ const StyledVideoItem = styled.div`
         /* opacity: 0; */
         pointer-events: none;
         position: absolute;
-        width: 100%;
+        width: 80%;
         height: 100%;
         bottom: -3px;
         left: 0;

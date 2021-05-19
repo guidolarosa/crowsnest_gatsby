@@ -103,24 +103,25 @@ const StyledNewsPage = styled.section`
           flex-grow: 1;
           display: flex;
           flex-direction: column;
+          .title,
+          .excerpt {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            letter-spacing: 1px;
+          }
           .title {
             font-size: 20px;
             margin-bottom: 8px;
             font-weight: 400;
-            display: -webkit-box;
             -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
           }
           .excerpt {
             font-size: 16px;
             opacity: .7;
             line-height: 20px;
             font-weight: 300;
-            display: -webkit-box;
             -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
           }
           .news-piece-footer {
             margin-top: auto;
