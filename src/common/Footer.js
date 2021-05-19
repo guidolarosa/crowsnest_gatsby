@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from './Container';
 import {AiOutlineMail, AiOutlineInstagram, AiFillFacebook} from 'react-icons/ai';
+import { breakpoints } from './../utils/theme';
 
 const Footer = (props) => {
     return (
@@ -50,6 +51,15 @@ const StyledFooter = styled(Container)`
                 opacity: .7;
                 &:hover {
                     opacity: 1;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: ${breakpoints.md + 'px'}) {
+        .footer-content {
+            .address-container {
+                address {
+                    font-size: 12px;
                 }
             }
         }
