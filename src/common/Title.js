@@ -21,6 +21,8 @@ const StyledTitleH1 = styled.div`
     h1 {
       font-size: 42px;
       margin: 0;
+      max-width: 70%;
+      font-weight: 400;
     }
     .decoration-container {
         position: relative;

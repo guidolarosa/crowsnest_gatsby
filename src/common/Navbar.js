@@ -38,6 +38,7 @@ const StyledNavbar = styled(Container)`
     display: flex;
     align-items: center;
     box-shadow: 0 1px 50px 0 rgba(0,0,0,.7);
+    background-color: ${(props) => (props.theme.background)};
     .navbar-content {
         display: flex;
         justify-content: space-between;

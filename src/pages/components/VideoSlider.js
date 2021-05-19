@@ -6,6 +6,7 @@ import VideoItem from './VideoItem';
 import $ from 'jquery';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import { breakpoints } from './../../utils/theme';
 
 const VideoSlider = (props) => {
     const { title, content, contentColor } = props;
@@ -13,6 +14,7 @@ const VideoSlider = (props) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [pageWidth, setPageWidth] = useState(null);
+    const [windowWidth, setWindowWidth] = useState(0);
     const [pages, setPages] = useState(null);
     const [pageSize, setPageSize] = useState(4);
     const [sliderTotalPages, setSliderTotalPages] = useState(0);
@@ -30,7 +32,7 @@ const VideoSlider = (props) => {
             };
             setPages(pages);
         }
-    }, [content]);
+    }, [content, pageSize]);
 
     useEffect(() => {
         if (pages) {
@@ -43,7 +45,7 @@ const VideoSlider = (props) => {
     }, [currentPage])
 
     const handleItemSelect = (item) => {
-        console.log(item);
+        // console.log(item);
         setSelectedItem(item);
         setIsModalOpen(true);
     };
@@ -57,7 +59,7 @@ const VideoSlider = (props) => {
             const pageWidth = pageRef.current.getBoundingClientRect().width;
             setPageWidth(pageWidth);
         }
-    }, [pageRef.current]);
+    }, [pageRef.current, windowWidth]);
 
     const handleArrowLeft = () => {
         if (currentPage > 1) {
@@ -75,7 +77,37 @@ const VideoSlider = (props) => {
         $(sliderContainerRef.current).stop().animate({
             scrollLeft: pageWidth * (currentPage - 1)
         });
-    }, [currentPage])
+    }, [currentPage]);
+
+    const handleWindowWidth = (width) => {
+        console.log(width, breakpoints.md)
+        if (width < breakpoints.md && width > breakpoints.s) {
+            setPageSize(3);
+            console.log('tablet')
+        } else if (width <= breakpoints.s && width > breakpoints.xs)  {
+            setPageSize(2);
+            console.log('phone-l')
+        } else if (width <= breakpoints.xs) {
+            setPageSize(1);
+            console.log('phone')
+        } else {
+            setPageSize(4);
+            console.log('default')
+        }
+    }
+
+    useEffect(() => {
+        let width = window.innerWidth;
+        setWindowWidth(width)
+        window.addEventListener('resize', (e) => {
+            let width = e.currentTarget.innerWidth;
+            setWindowWidth(width);
+        })
+    }, []);
+
+    useEffect(() => {
+        handleWindowWidth(windowWidth)
+    }, [windowWidth])
 
     return (
         <StyledVideoSlider size="medium" contentColor={contentColor} pageSize={pageSize}>
@@ -184,9 +216,12 @@ const StyledVideoSlider = styled(Container)`
         .slider-page {
             display: grid;
             grid-template-columns: repeat(${(props) => (props.pageSize)}, 1fr);
-            grid-template-rows: 100%;
+            grid-template-rows: 148px;
             min-width: 100%;
             grid-column-gap: 4px;
+            @media screen and (max-width: ${(props) => (`${breakpoints.s}px`)}) {
+                grid-template-rows: 200px;
+            }
         }
     }
     .slider-step-indicators {

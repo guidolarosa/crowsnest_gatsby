@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {breakpoints} from './../utils/theme';
 
 const Container = (props) => {
     const {
@@ -78,7 +79,7 @@ const handleWidth = (props) => {
     const SIZE_VALUES = {
         'full': '100%',
         'x-large': '1400px',
-        'large': '1200',
+        'large': '1200px',
         'medium': '992px',
         'small': '768px',
         'x-small': '576px'
@@ -103,5 +104,11 @@ const StyledContainer = styled.div`
     display: ${(props) => (props.flex ? 'flex' : 'block')};
     .empty-message {
         opacity: .6;
+    }
+    @media screen and (max-width: ${breakpoints.l + 'px'}) {
+        width: ${(props) => (props.size == 'full' ? '100%' : '80%')};
+    }
+    @media screen and (max-width: ${breakpoints.s}) {
+        width: ${(props) => (props.size == 'full' ? '100%' : '85%')};
     }
 `;

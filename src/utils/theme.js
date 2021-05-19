@@ -17,4 +17,17 @@ const theme = {
     'gradient_purple': '#633175'
 };
 
+export const breakpoints = {
+    'xs': 576,
+    's': 768,
+    'md': 992,
+    'l': 1200,
+    'xl': 1400
+}
+
+export const boxShadow = {
+    
+}
+
 export default theme;
+

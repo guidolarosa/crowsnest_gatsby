@@ -25,17 +25,16 @@ const VideoItem = (props) => {
 const StyledVideoItem = styled.div`
     background: black;
     border-radius: 2px;
-    height: 140px;
-    background-size: 150%;
+    height: 100%;
+    background-size: cover;
     background-position: center;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.7);
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    transition: ease-in-out .1s all;
+    transition: ease-in-out .2s all;
     border: 0px solid ${(props) => (props.theme.accent)};
     &:hover {
-        border: 3px solid ${(props) => (props.theme.accent)};
         .product-overlay {
             background: linear-gradient(0deg, ${(props) => (props.theme.accent)}, transparent 50%);
             opacity: 1;
@@ -52,7 +51,7 @@ const StyledVideoItem = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        bottom: -1px;
+        bottom: -3px;
         left: 0;
         display: flex;
         flex-direction: column;
