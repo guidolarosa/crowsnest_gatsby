@@ -19,14 +19,21 @@ const StyledTitleH1 = styled.div`
     width: 100%;
     display: flex;
     margin-bottom: 32px;
+    @media screen and (max-width: ${breakpoints.md + 'px'}) {
+        h1 {
+            font-size: 38px;
+        }
+        .decoration-container {
+            &:before {
+                display: none;
+            }
+        }
+    }
     h1 {
       font-size: 42px;
       margin: 0;
-      max-width: 70%;
+      /* max-width: 70%; */
       font-weight: 400;
-      @media screen and (max-width: ${breakpoints.md + 'px'}) {
-          font-size: 38px;
-      }
     }
     .decoration-container {
         position: relative;
