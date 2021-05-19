@@ -41,6 +41,7 @@ const StyledButton = styled.span`
         letter-spacing: 1px;
         &:hover {
             box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
+            background: ${(props) => (props.theme.accentLight)}
         }
     }
 `;

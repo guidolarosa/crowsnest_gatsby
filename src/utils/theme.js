@@ -1,21 +1,34 @@
-import { rgba } from "polished";
+import { rgba, lighten, darken } from "polished";
 
-const theme = {
-    'black': 'rgba(0,0,0)',
+const basicPalette = {
+    'black': '#000000',
     'white': 'rgba(255,255,255)',
     'background': '#1F1F1F',
-    'grey600': '#303030',
-    'grey300': '#4a4545',
     'accent': 'slateblue',
-    'accentLight': '#7265c2',
     'blue': '#3E88F6',
     'red': '#F63E3E',
     'green': '#3BCC49',
     'yellow': '#FFD336',
     'purple': '#C550EE',
-    'gradient_blue': '#313875',
-    'gradient_purple': '#633175'
 };
+
+console.log(basicPalette['red'])
+const expandedPalette = {
+    ...basicPalette,
+    'accentLight': () => (lighten(0.025, basicPalette.accent)),
+    'grey600': () => (lighten(0.15, basicPalette.black)),
+    'grey500': () => (lighten(0.22, basicPalette.black)),
+    'grey400': () => (lighten(0.35, basicPalette.black)),
+    'grey300': () => (lighten(0.5, basicPalette.black)),
+    'grey100': () => (lighten(0.1, basicPalette.black)),
+    'blue500': () => (darken(0.4, basicPalette.blue)),
+    'purple500': () => (darken(0.4, basicPalette.purple)),
+};
+
+const theme = {
+    ...basicPalette,
+    ...expandedPalette
+}
 
 export const breakpoints = {
     'xs': 576,
@@ -26,7 +39,7 @@ export const breakpoints = {
 }
 
 export const boxShadow = {
-    
+
 }
 
 export default theme;

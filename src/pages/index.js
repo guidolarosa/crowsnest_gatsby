@@ -141,12 +141,12 @@ const StyledIndexPage = styled.section`
         top: 0;
         left: 0;
         opacity: 0;
-        background: radial-gradient(circle at left, ${(props) => (props.theme.gradient_blue)} 0%, ${(props) => (props.theme.background)} 40%);
+        background: radial-gradient(circle at left, ${(props) => (props.theme.blue500)} 0%, ${(props) => (props.theme.background)} 40%);
         &:nth-child(2) {
           right: 0;
           background: red;
           left: 50%;
-          background: radial-gradient(circle at right, ${(props) => (props.theme.gradient_purple)} 0%, ${(props) => (props.theme.background)} 40%);
+          background: radial-gradient(circle at right, ${(props) => (props.theme.purple500)} 0%, ${(props) => (props.theme.background)} 40%);
         }
         &.fade-in-animate {
           animation: ${fadeIn} 2s forwards;

@@ -159,7 +159,7 @@ const StyledVideoSlider = styled(Container)`
     margin-bottom: 48px;
     position: relative;
     .video-slider-title {
-        background: ${(props) => (props.theme.grey300)};
+        background: ${(props) => (props.theme.grey400)};
         display: inline-block;
         border-radius: 100px;
         padding: 0 8px;

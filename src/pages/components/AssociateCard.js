@@ -81,10 +81,10 @@ const StyledAssociateCard = styled.div`
         align-items: center;
         justify-content: flex-end;
         cursor: pointer;
-        background: ${(props) => (props.isExpanded ? 'unset' : `linear-gradient(0deg,  #303030 25%, transparent)`)};
+        background: linear-gradient(0deg, ${(props) => (props.theme.grey600)} 25%, transparent);
+        background: ${(props) => (props.isExpanded && 'unset')};
         font-weight: 600;
         font-size: 24px;
-        /* color: ${(props) => (props.theme.accent)}; */
     }
 `;
 
