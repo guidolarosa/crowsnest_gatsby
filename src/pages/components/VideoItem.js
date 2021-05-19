@@ -15,8 +15,8 @@ const VideoItem = (props) => {
             onClick={() => {onClick(content)}}
         >
             <div className="product-overlay">
+                <span className={'year-badge'}>{year}</span>
                 <h3>{title}</h3>
-                {/* <span className={'year-badge'}>{year}</span> */}
             </div>
         </StyledVideoItem>
     )
@@ -26,7 +26,7 @@ const StyledVideoItem = styled.div`
     background: black;
     border-radius: 2px;
     height: 100%;
-    background-size: cover;
+    background-size: 120%;
     background-position: center;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.7);
     position: relative;
@@ -46,10 +46,9 @@ const StyledVideoItem = styled.div`
     }
     .product-overlay {
         padding: 8px;
-        /* opacity: 0; */
         pointer-events: none;
         position: absolute;
-        width: 80%;
+        width: 100%;
         height: 100%;
         bottom: -3px;
         left: 0;
@@ -62,8 +61,6 @@ const StyledVideoItem = styled.div`
             position: relative;
             transition: ease-in-out 0.2s all;
             transition-delay: .2s;
-            /* opacity: 0; */
-            /* filter: blur(10px) */
         }
         h3 {
             font-weight: 400;
@@ -71,11 +68,11 @@ const StyledVideoItem = styled.div`
             line-height: 20px;
             margin: 0;
             margin-top: auto;
-            /* margin-bottom: 8px; */
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;  
             overflow: hidden;
+            width: 80%;
         }
         .year-badge {
             margin: 0;
@@ -87,7 +84,7 @@ const StyledVideoItem = styled.div`
             border-radius: 30px;
             padding: 0 10px;
             line-height: 16px;
-
+            margin-left: auto;
         }
     }
 `;

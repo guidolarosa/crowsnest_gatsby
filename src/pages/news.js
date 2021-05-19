@@ -117,7 +117,7 @@ const StyledNewsPage = styled.section`
             -webkit-line-clamp: 2;
           }
           .excerpt {
-            font-size: 16px;
+            font-size: 14px;
             opacity: .7;
             line-height: 20px;
             font-weight: 300;
