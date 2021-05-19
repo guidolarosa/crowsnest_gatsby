@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {IoChevronDownSharp, IoChevronUpSharp} from 'react-icons/io5';
+import {breakpoints} from './../../utils/theme';
 
 const AssociateCard = (props) => {
     const {content} = props;
@@ -85,6 +86,29 @@ const StyledAssociateCard = styled.div`
         background: ${(props) => (props.isExpanded && 'unset')};
         font-weight: 600;
         font-size: 24px;
+    }
+    @media screen and (max-width: ${breakpoints.md + 'px'}) {
+        flex-direction: column;
+        max-height: ${(props) => (props.isExpanded ? 'unset' : '520px')};
+        align-items: center;
+        .associate-image {
+            min-height: 120px;
+            width: 120px;
+            margin-bottom: 12px;
+        }
+        .associate-details {
+            padding-left: 0;
+            .associate-name {
+                text-align: center;
+                &:after {
+                    left: calc(50% - 32px);
+                }
+            }
+        }
+        .expand-control {
+            width: 100%;
+            left: 0;
+        }
     }
 `;
 

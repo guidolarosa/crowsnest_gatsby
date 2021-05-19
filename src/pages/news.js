@@ -77,8 +77,11 @@ const StyledNewsPage = styled.section`
       list-style: none;
       padding: 0;
       margin: 0;
-      @media screen and (max-width: ${breakpoints.s + 'px'}) {
+      @media screen and (max-width: ${breakpoints.md + 'px'}) {
         grid-template-columns: repeat(2, 1fr);
+      }
+      @media screen and (max-width: ${breakpoints.s + 'px'}) {
+        grid-template-columns: repeat(1, 1fr);
       }
       * {
         text-decoration: none;

@@ -1,6 +1,7 @@
 
 import React, {useEffect} from "react";
 import styled from 'styled-components';
+import {breakpoints} from './../utils/theme'
 
 const Title = (props) => {
     return (
@@ -23,6 +24,9 @@ const StyledTitleH1 = styled.div`
       margin: 0;
       max-width: 70%;
       font-weight: 400;
+      @media screen and (max-width: ${breakpoints.md + 'px'}) {
+          font-size: 38px;
+      }
     }
     .decoration-container {
         position: relative;
