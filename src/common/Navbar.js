@@ -51,6 +51,9 @@ const StyledNavbar = styled(Container)`
     box-shadow: 0 1px 50px 0 rgba(0,0,0,.7);
     background-color: ${(props) => (props.theme.background)};
     z-index: 1;
+    .menu-trigger {
+        display: none;
+    }
     .navbar-content {
         display: flex;
         justify-content: space-between;
@@ -94,6 +97,9 @@ const StyledNavbar = styled(Container)`
     @media screen and (max-width: ${breakpoints.md + 'px'}) {
         height: 60px;
         .navbar-content {
+            .menu-trigger {
+                display: inline-block;
+            }
             nav {
                 pointer-events: none;
                 position: absolute;
@@ -112,7 +118,12 @@ const StyledNavbar = styled(Container)`
                 ul {
                     display: flex;
                     flex-direction: column;
-                    margin-top: 80px;
+                    /* margin-top: 80px; */
+                    width: 85%;
+                    @media screen and (max-width: ${breakpoints.s + 'px'}) { 
+                        width: 100%;
+                    }
+                    margin: 80px auto;
                     li {
                         margin-bottom: 40px;
                         a {
