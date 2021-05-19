@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import logo from '../images/logo.svg';
+import {breakpoints} from './../utils/theme';
 
 const Logo = (props) => {
     return (
@@ -38,6 +39,16 @@ const StyledLogo = styled.section`
         .sub-label {
             color: ${(props) => (props.theme.accent)};
             font-size: 16px;
+        }
+        @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            .company-name {
+                font-size: 28px;
+                margin-bottom: 0;
+            }
+            .sub-label {
+                font-size: 12px;
+                line-height: 12px;
+            }
         }
     }
 `
