@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled, {ThemeProvider} from 'styled-components';
 import { Helmet } from 'react-helmet';
-import theme from './../utils/theme';
+import theme, { breakpoints } from './../utils/theme';
 import Header from '../common/Header';
 import Container from './../common/Container';
 import Title from './../common/Title';
@@ -143,6 +143,15 @@ const StyledAboutPage = styled.section`
     .associates-list {
       display: flex;
       flex-direction: column;
+    }
+  }
+  @media screen and (max-width: ${breakpoints.md + 'px'}) {
+    .about-us-content {
+      .about-us-text {
+        p {
+          padding-right: 0;
+        }
+      }
     }
   }
 `;

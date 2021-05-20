@@ -77,6 +77,18 @@ const StyledNavbar = styled(Container)`
                         text-transform: capitalize;
                         font-size: 16px;
                         position: relative;
+                        &:hover:not(.active) {
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                bottom: -.5rem;
+                                height: 1px;
+                                width: 100%;
+                                background: ${(props) => (props.theme.accent)};
+                                opacity: .5;
+                            }
+                        }
                         &.active {
                             font-weight: 500;
                             &:after {

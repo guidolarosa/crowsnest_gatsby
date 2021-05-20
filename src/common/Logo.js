@@ -32,13 +32,14 @@ const StyledLogo = styled.section`
         flex-direction: column;
         .company-name {
             font-weight: 600;
-            font-size: 42px;
+            font-size: 30px;
             margin-bottom: 4px;
             text-transform: uppercase;
         }
         .sub-label {
             color: ${(props) => (props.theme.accent)};
             font-size: 16px;
+            line-height: 18px;
         }
         @media screen and (max-width: ${breakpoints.md + 'px'}) {
             .company-name {

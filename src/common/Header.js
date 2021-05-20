@@ -14,4 +14,6 @@ export default Header;
 const StyledHeader = styled.header`
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 `;

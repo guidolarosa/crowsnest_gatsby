@@ -1,7 +1,7 @@
 import React from "react"
 import styled, {ThemeProvider} from 'styled-components';
 import { Helmet } from 'react-helmet';
-import theme, {boxShadow} from './../utils/theme';
+import theme, {boxShadow, breakpoints} from './../utils/theme';
 import Header from '../common/Header';
 import Container from './../common/Container';
 import Title from './../common/Title';
@@ -98,7 +98,7 @@ const StyledEducationPage = styled.section`
         grid-column-gap: 20px;
         grid-row-gap: 24px;
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 120px;
+        grid-auto-rows: 120px;
         img {
           max-height: 100px;
           filter: grayscale(1);
@@ -108,6 +108,20 @@ const StyledEducationPage = styled.section`
           &:hover {
             filter: grayscale(0);
           }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: ${breakpoints.md + 'px'}) {
+    main {
+      .education-content {
+        padding-right: 0;
+      }
+      .educational-gallery {
+        .logo-list {
+          grid-template-columns: repeat(3, 1fr);
+          grid-column-gap: 10px;
+          grid-auto-rows: 80px;
         }
       }
     }
