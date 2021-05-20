@@ -9,7 +9,7 @@ const colorList = [
 
 const themeConfig = {
     accent: 'slateblue',
-    randomAccent: false,
+    randomAccent: true,
     colorList: colorList,
 }
 
@@ -59,7 +59,8 @@ export const breakpoints = {
 }
 
 export const boxShadow = {
-    'md': `0 0 10px ${transparentize(0.4, basicPalette.black)}`
+    'md': `0 0 10px ${transparentize(0.4, basicPalette.black)}`,
+    'l': `0 0 30px ${transparentize(0.6, basicPalette.black)}`
 }
 
 export default theme;

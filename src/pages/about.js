@@ -138,7 +138,7 @@ const StyledAboutPage = styled.section`
     }
   }
   .associates-content {
-    margin-top: 120px;
+    margin-top: 40px;
     padding-bottom: 90px;
     .associates-list {
       display: flex;

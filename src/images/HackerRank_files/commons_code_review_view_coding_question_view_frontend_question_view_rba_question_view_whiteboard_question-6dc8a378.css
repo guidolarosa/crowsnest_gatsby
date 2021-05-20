@@ -1,0 +1,4 @@
+.question-left-pane__overlay{position:absolute;top:70px;left:6px;width:200px;color:#576871;text-transform:uppercase;letter-spacing:1px;transform:rotate(-90deg) translateX(-100%);transform-origin:0 0}.question-left-pane__overlay.ui-btn{color:#576871;font-size:16px}
+.question-view__title-wrapper{padding-top:20px}.question-view__title{margin:0 0 20px;padding:20px 0 10px;font-size:20px;border-bottom:2px solid #e7eeef;border-bottom-color:var(--color-problem-statement-border,#e7eeef)}.question-view__switch-theme__wrapper{font-size:14px}
+
+/*# sourceMappingURL=https://hrcdn.net/candidate-site/assets/sourcemaps/commons~code_review_view~coding_question_view~frontend_question_view~rba_question_view~whiteboard_question-6dc8a378.css.map*/

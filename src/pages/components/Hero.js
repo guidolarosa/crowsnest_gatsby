@@ -36,19 +36,19 @@ const Hero = () => {
 
 const fadeUp = keyframes`
     from {
-        top: 100px;
+        transform: scale(.8);
         opacity: 0;
         filter: blur(10px)
     }
     to {
-        top: 0;
+        transform: scale(1);
         opacity: 1;
         filter: blur(0)
     }
 `;
 
 const StyledHero = styled(Container)`
-    background: ${(props) => (props.theme.accent)};
+    background: ${(props) => (props.theme.black)};
     flex-grow: 1;
     background-position: center;
     background-size: cover;
@@ -64,14 +64,14 @@ const StyledHero = styled(Container)`
     }
     .hero-card {
         background: rgba(0,0,0,.1);
-        border: 1px solid rgba(255,255,255, .5);
+        border: 2px solid ${(props) => (props.theme.accentLight)};
         margin-top: 80px;
         border-radius: 10px;
-        backdrop-filter: blur(10px);
-        animation: 1s ${fadeUp} forwards .5s;
+        backdrop-filter: blur(20px);
+        animation: .5s ${fadeUp} forwards .5s;
         opacity: 0;
         position: relative;
-        box-shadow: ${boxShadow.md};
+        box-shadow: ${boxShadow.l};
         h1 {
             font-size: 84px;
             font-weight: 200;
