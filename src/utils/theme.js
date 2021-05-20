@@ -1,4 +1,4 @@
-import { rgba, lighten, darken } from "polished";
+import { rgba, lighten, darken, transparentize } from "polished";
 
 const colorList = [
     'slateblue',
@@ -59,7 +59,7 @@ export const breakpoints = {
 }
 
 export const boxShadow = {
-
+    'md': `0 0 10px ${transparentize(0.4, basicPalette.black)}`
 }
 
 export default theme;

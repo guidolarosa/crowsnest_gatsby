@@ -1,7 +1,7 @@
 import React from "react"
 import styled, {ThemeProvider} from 'styled-components';
 import { Helmet } from 'react-helmet';
-import theme from './../utils/theme';
+import theme, {boxShadow} from './../utils/theme';
 import Header from '../common/Header';
 import Container from './../common/Container';
 import Title from './../common/Title';
@@ -11,6 +11,10 @@ import { graphql } from 'gatsby';
 
 const EducationPage = ({data}) => {
   let educationItems = data.allPrismicEducacional.nodes[0].dataRaw.body;
+
+  educationItems.map((item) => {
+    console.log(item);
+  })
   
   return (
     <ThemeProvider theme={theme}>
@@ -38,8 +42,8 @@ const EducationPage = ({data}) => {
                 </span>
                 <div className={'educational-gallery'}>
                     <div className="logo-list">
-                      {educationItems.map((logo) => (
-                        <img src={logo.primary.logo.url} />
+                      {educationItems.map((item) => (
+                        <img title={item.primary.place[0].text} src={item.primary.logo.url} />
                       ))}
                     </div>
                 </div>
@@ -79,6 +83,11 @@ const StyledEducationPage = styled.section`
     }
     .educational-gallery {
       margin-top: 30px;
+      border: 1px solid ${(props) => (props.theme.grey400)};
+      background: ${(props) => (props.theme.grey600)};
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: ${boxShadow.md};
       .logo-list {
         display: flex;
         flex-wrap: wrap;
@@ -90,6 +99,10 @@ const StyledEducationPage = styled.section`
         img {
           max-height: 120px;
           filter: grayscale(1);
+          transition: ease-in-out 0.2s filter;
+          &:hover {
+            filter: grayscale(0);
+          }
         }
       }
     }

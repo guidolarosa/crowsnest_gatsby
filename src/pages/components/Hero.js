@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import Container from '../../common/Container';
 import Button from '../../common/Button';
 import backgroundImage from '../../images/hero_background.png';
-import {breakpoints} from './../../utils/theme';
+import {breakpoints, boxShadow} from './../../utils/theme';
 
 const Hero = () => {
     return (
@@ -66,11 +66,12 @@ const StyledHero = styled(Container)`
         background: rgba(0,0,0,.1);
         border: 1px solid rgba(255,255,255, .5);
         margin-top: 80px;
-        border-radius: 5px;
+        border-radius: 10px;
         backdrop-filter: blur(10px);
         animation: 1s ${fadeUp} forwards .5s;
         opacity: 0;
         position: relative;
+        box-shadow: ${boxShadow.md};
         h1 {
             font-size: 84px;
             font-weight: 200;
