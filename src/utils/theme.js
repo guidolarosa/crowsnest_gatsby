@@ -9,7 +9,7 @@ const colorList = [
 
 const themeConfig = {
     accent: 'slateblue',
-    randomAccent: true,
+    randomAccent: false,
     colorList: colorList,
 }
 
