@@ -22,7 +22,7 @@ const ServicesPage = () => (
           <Container size={'medium'} className={'services-data'}>
             <Title content={'Nuestros Servicios'} />
             <p>
-              Estamos junto a ustedes desde el planeamientos en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas y los acompañamos hasta la masterización final.
+              Acompañamos a nuestros clientes desde el <strong>planeamiento en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas</strong> y los acompañamos hasta la masterización final.
             </p>
             <p>
               Tenemos la tecnología, los conocimientos y el expertise necesario para resolver y asesorar al cliente en todo el camino de su material hasta sus deliveries al archivado y backup final. Cientos de trabajos avalan nuestra experiencia.

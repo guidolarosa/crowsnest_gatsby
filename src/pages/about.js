@@ -8,6 +8,7 @@ import Title from './../common/Title';
 import AssociateCard from './components/AssociateCard'
 import Footer from './../common/Footer';
 import eduSierraPic from '../images/edu_sierra.webp';
+import backgroundImage from '../images/hero_background.png';
 
 const AboutPage = () => {
   const associateData = [
@@ -48,31 +49,38 @@ const AboutPage = () => {
           </Helmet>
           <Header>
           </Header>
-          <Container size={'medium'}>
+          <Container size={'full'}>
             <main>
               <section className={'about-us-content'}>
-                <Title className={'title-container'} content={'¿Qué es Crows Nest?'} />
-                <p>
-                  Crows Nest PCG es una empresa dedicada al <strong>color grading</strong> y <strong>post producción de color</strong> en todas sus etapas, desde el <strong>asesoramiento en pre-producción (¨look book¨)</strong>, pasando por <strong>la supervisión en rodaje</strong> hasta el <strong>mastering final</strong> de la obra, creando y diseñando el flujo de trabajo particular de cada proyecto, desde los ¨in house¨, hasta trabajos internacionales en forma remota.
-                </p>
-                <p>
-                  Largometrajes, series, comerciales, cortometrajes, videoclips y trabajos para TV y web son nuestra tarea de cada día, <strong>todos los días</strong>.
-                </p>
-                <p>
-                  Contamos con <strong>20 años de experiencia en diseño y asesoramiento para salas de Color Grading profesionales a productoras y casas de post-producción</strong>, considerando la ambientación técnica adecuada; desde la pintura de la sala, pasando por la iluminación, los muebles, y hasta el hardware necesario según el tipo de trabajos que se deseen afrontar. 
-                </p>
-                <p>
-                  Somos los <strong>primeros en utilizar, desarrollar y actualizar equipos profesionales de corrección de color</strong> y armar salas de color grading profesional en el país.
-                </p>
+                <div className="background-image"></div>
+                <Container size={'medium'}>
+                  <div className={'about-us-text'}>
+                    <Title className={'title-container'} content={'¿Qué es Crows Nest?'} />
+                    <p>
+                      Crows Nest PCG es una empresa dedicada al <strong>color grading</strong> y <strong>post producción de color</strong> en todas sus etapas, desde el <strong>asesoramiento en pre-producción (¨look book¨)</strong>, pasando por <strong>la supervisión en rodaje</strong> hasta el <strong>mastering final</strong> de la obra, creando y diseñando el flujo de trabajo particular de cada proyecto, desde los ¨in house¨, hasta trabajos internacionales en forma remota.
+                    </p>
+                    <p>
+                      Largometrajes, series, comerciales, cortometrajes, videoclips y trabajos para TV y web son nuestra tarea de cada día, <strong>todos los días</strong>.
+                    </p>
+                    <p>
+                      Contamos con <strong>20 años de experiencia en diseño y asesoramiento para salas de Color Grading profesionales a productoras y casas de post-producción</strong>, considerando la ambientación técnica adecuada; desde la pintura de la sala, pasando por la iluminación, los muebles, y hasta el hardware necesario según el tipo de trabajos que se deseen afrontar. 
+                    </p>
+                    <p>
+                      Somos los <strong>primeros en utilizar, desarrollar y actualizar equipos profesionales de corrección de color</strong> y armar salas de color grading profesional en el país.
+                    </p>
+                  </div>
+                </Container>
               </section>
-              <section className={'associates-content'}>
-                <Title className={'associates-title'} content={'Nosotros'} />
-                <section className={'associates-list'}>
-                  {associateData.map((associate) => (
-                    <AssociateCard content={associate}/>
-                  ))}
+              <Container size={'medium'}>
+                <section className={'associates-content'}>
+                  <Title className={'associates-title'} content={'Nosotros'} />
+                  <section className={'associates-list'}>
+                    {associateData.map((associate) => (
+                      <AssociateCard content={associate}/>
+                    ))}
+                  </section>
                 </section>
-              </section>
+              </Container>
             </main>
           </Container>
           <Footer />
@@ -87,19 +95,46 @@ const StyledAboutPage = styled.section`
   background: ${(props) => (props.theme.background)};
   min-height: 100vh;
   .about-us-content {
-    margin-top: 60px;
-    p {
-      font-weight: 200;
-      font-size: 22px;
-      line-height: 32px;
-      padding-right: 30%;
-      opacity: .7;
-      strong {
-        font-weight: 500;
+    /* margin-top: 60px; */
+    position: relative;
+    padding: 60px 32px 32px 0;
+    .background-image {
+      background-color: ${(props) => (props.theme.black)};
+      background-image: url(${backgroundImage});
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 0;
+      /* border-radius: 5px; */
+      &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(90deg, ${(props) => (props.theme.black)} 30%, transparent)
       }
     }
-    .title-container {
-      padding-right: 30%;
+    .about-us-text {
+      position: relative;
+      z-index: 1;
+      p {
+        font-weight: 200;
+        font-size: 22px;
+        line-height: 32px;
+        padding-right: 30%;
+        opacity: .7;
+        strong {
+          font-weight: 500;
+        }
+      }
+      .title-container {
+        padding-right: 30%;
+      }
     }
   }
   .associates-content {

@@ -46,22 +46,12 @@ const StyledTitleH1 = styled.div`
             left: 0;
             width: 100%;
             height: 1px;
-            background: ${(props) => (props.theme.accent)};
-        }
-        &:before {
-            position: absolute;
-            content: '';
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
             background: linear-gradient(90deg,
-                ${(props) => (props.theme.background)},
                 transparent,
-                transparent,
-                ${(props) => (props.theme.background)}
-            )
+                ${(props) => (props.theme.accent)},
+                ${(props) => (props.theme.accent)},
+                transparent
+            );
         }
     }
 `;

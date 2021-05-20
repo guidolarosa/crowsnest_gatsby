@@ -29,28 +29,31 @@ const EducationPage = ({data}) => {
               <section className={'education-content'}>
                 <Title content={'Nuestros cursos'} />
                 <p>
-                Dictamos cursos de manejo de software de color de forma personalizada e individual, ya sean aspirantes a coloristas que desean profundizar conocimientos, directores de fotografía, editores, montajistas o vfx´s  para actualizarlos en el manejo de nuevas versiones de software de corrección de color del mercado, tips y estrategias para realizar proyectos desde su inicio; realizamos también tutorías para ¨coloristas noveles¨ que desean aprender sus primeros pasos en este oficio de manera correcta acompañándolos y aconcejándolos en sus proyectos de la mano de verdaderos coloristas profesionales con cualquier  herramienta utilizadas en la actualidad haciendo hincapié en las formas de trabajo y métodos más eficientes en los flujos de trabajo actuales.
-              </p>
-              <p>
-                También diseñamos cursos a medida, capacitaciones y workshops de Color Grading y Software para empresas, productoras, casas de postproducción y a estudiantes universitarios o de carreras afines a la educación audiovisual, tanto en el país como en el exterior que necesitan actualizarse en el manejo y conocimiento de nuevas tecnologías de corrección de color.
-              </p>
-            </section>
-            <Container size={'full'}>
-              <Container size={'medium'}>
-                <span className={'gallery-header'}>
-                  Las siguientes instituciones se han capacitado con nosotros
-                </span>
-                <div className={'educational-gallery'}>
-                    <div className="logo-list">
-                      {educationItems.map((item) => (
-                        <img title={item.primary.place[0].text} src={item.primary.logo.url} />
-                      ))}
-                    </div>
-                </div>
+                  Dictamos <strong>cursos de manejo de software de color de forma personalizada e individual</strong>, ya sean aspirantes a coloristas que desean profundizar conocimientos, directores de fotografía, editores, montajistas o vfx´s  para actualizarlos en el manejo de nuevas versiones de software de corrección de color del mercado, tips y estrategias para realizar proyectos desde su inicio.
+                </p>
+                <p>
+                  Realizamos también <strong>tutorías para ¨coloristas noveles¨</strong> que desean tomar sus primeros pasos en este oficio de manera correcta acompañándolos y aconcejándolos en sus proyectos <strong>de la mano de verdaderos coloristas profesionales con cualquiera de las herramientas</strong> utilizadas en la actualidad, haciendo hincapié en las formas de trabajo y métodos más eficientes en los flujos de trabajo actuales.
+                </p>
+                <p>
+                  También <strong>diseñamos cursos a medida, capacitaciones y workshops de Color Grading y Software</strong> para empresas, productoras y casas de post-producción que necesitan actualizarse en el manejo y conocimiento de nuevas tecnologías de corrección de color, y a estudiantes universitarios o de carreras afines a la educación audiovisual, tanto <strong>en el país como en el exterior</strong>.
+                </p>
+              </section>
+              <Container size={'full'}>
+                <Container size={'medium'}>
+                  <span className={'gallery-header'}>
+                    Las siguientes instituciones se han capacitado con nosotros
+                  </span>
+                  <div className={'educational-gallery'}>
+                      <div className="logo-list">
+                        {educationItems.map((item) => (
+                          <img title={item.primary.place[0].text} src={item.primary.logo.url} />
+                        ))}
+                      </div>
+                  </div>
+                </Container>
               </Container>
-            </Container>
-          </main>
-        </Container>
+            </main>
+          </Container>
         <Footer />
       </StyledEducationPage>
     </ThemeProvider>
@@ -97,8 +100,10 @@ const StyledEducationPage = styled.section`
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 120px;
         img {
-          max-height: 120px;
+          max-height: 100px;
           filter: grayscale(1);
+          margin: 0 auto;
+          border-radius: 5px;
           transition: ease-in-out 0.2s filter;
           &:hover {
             filter: grayscale(0);
