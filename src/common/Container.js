@@ -80,7 +80,7 @@ const handleWidth = (props) => {
         'full': '100%',
         'x-large': '1400px',
         'large': '1200px',
-        'medium': '992px',
+        'medium': '1100px',
         'small': '768px',
         'x-small': '576px'
     };

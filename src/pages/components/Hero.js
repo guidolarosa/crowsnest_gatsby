@@ -97,7 +97,10 @@ const StyledHero = styled(Container)`
         .hero-card {
             width: 100%;
             h1 {
-                font-size: 72px;
+                font-size: 54px;
+            }
+            p {
+                font-size: 26px;
             }
             .hero-cta {
                 a {
