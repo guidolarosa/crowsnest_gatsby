@@ -7,6 +7,7 @@ import backgroundImage from '../images/services.jpeg';
 import Title from './../common/Title';
 import Container from './../common/Container';
 import Footer from './../common/Footer';
+import { breakpoints } from './../utils/theme';
 
 const ServicesPage = () => (
   <ThemeProvider theme={theme}>
@@ -55,11 +56,11 @@ export default ServicesPage;
 const StyledServicesPage = styled.section`
     background: ${(props) => (props.theme.background)};
     header {
-      min-height: 60vh;
+      min-height: 40vh;
       .services-hero {
+        background-size: auto 500px;
         height: 100%;
         width: 100%;
-        background-size: cover;
         flex-grow: 1;
         background-position: center;
       }
@@ -76,6 +77,17 @@ const StyledServicesPage = styled.section`
       }
       .budgets {
         margin-top: 80px;
+      }
+    }
+    @media screen and (max-width: ${breakpoints.md + 'px'}) {
+      header {
+        min-height: unset;
+        .services-hero {
+          height: 230px;
+          flex-grow: unset;
+          background-size: 300%;
+          background-position: 90%;
+        }
       }
     }
 `;

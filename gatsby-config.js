@@ -15,7 +15,8 @@ module.exports = {
         repositoryName: 'crowsnest',
         schemas: {
            colorGrading: require("./custom_types/color-grading.json"),
-           noticias: require("./custom_types/noticias.json")
+           noticias: require("./custom_types/noticias.json"),
+           educacional: require("./custom_types/educacional.json"),
         },
       },
     },

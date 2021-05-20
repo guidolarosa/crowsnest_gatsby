@@ -3,6 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import Container from '../../common/Container';
 import Button from '../../common/Button';
 import backgroundImage from '../../images/hero_background.png';
+import {breakpoints} from './../../utils/theme';
 
 const Hero = () => {
     return (
@@ -17,9 +18,10 @@ const Hero = () => {
                 padded 
                 paddingSize={'large'}
                 align={'left'} 
-                width={'500px'}
+                width={'70%'}
               >
                 <h1>Color Grading<br/><b>Profesional</b></h1>
+                <p>Transformá la manera en la que se ven tus películas</p>
                 <Button 
                     className={'hero-cta'} 
                     label={'Informate'} 
@@ -70,16 +72,38 @@ const StyledHero = styled(Container)`
         opacity: 0;
         position: relative;
         h1 {
-            font-size: 64px;
+            font-size: 84px;
             font-weight: 200;
             margin: 0;
             b {
                 font-weight: 400;
             }
         }
+        p {
+            font-size: 32px;
+            font-weight: 300;
+            opacity: .7;
+            margin-top: 16px;
+            padding-right: 20%;
+            line-height: 40px;
+        }
         .hero-cta {
             margin-top: 18px;
             width: 200px;
+        }
+    }
+    @media screen and (max-width: ${breakpoints.s + 'px'}) {
+        .hero-card {
+            width: 100%;
+            h1 {
+                font-size: 72px;
+            }
+            .hero-cta {
+                a {
+                    font-size: 28px;
+                    padding: 16px;
+                }
+            }
         }
     }
 `;

@@ -1,0 +1,71 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "título",
+          "placeholder" : "Título de la sección"
+        }
+      },
+      "educational_info" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Información educacional",
+          "placeholder" : "Detalles e información para sección \"Educacional\""
+        }
+      },
+      "institutes_header_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Encabezado lista instituciones",
+          "placeholder" : "Título para la sección con logos de instituciones"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "choices" : {
+            "nueva_institucion" : {
+              "type" : "Slice",
+              "fieldset" : "Nueva institución",
+              "description" : "Añadir nueva institución al listado",
+              "icon" : "school",
+              "display" : "list",
+              "non-repeat" : {
+                "place" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label" : "Lugar",
+                    "placeholder" : "Nombre del lugar donde se llevó a cabo el curso"
+                  }
+                },
+                "logo" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "Logo"
+                  }
+                }
+              },
+              "repeat" : {
+                "carousel_image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "Imagen para carousel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

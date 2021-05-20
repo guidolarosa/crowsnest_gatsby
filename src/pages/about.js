@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled, {ThemeProvider} from 'styled-components';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import theme from './../utils/theme';
 import Header from '../common/Header';
 import Container from './../common/Container';
@@ -56,10 +56,13 @@ const AboutPage = () => {
                   Crows Nest PCG es una empresa dedicada al <strong>color grading</strong> y <strong>post producción de color</strong> en todas sus etapas, desde el <strong>asesoramiento en pre-producción (¨look book¨)</strong>, pasando por <strong>la supervisión en rodaje</strong> hasta el <strong>mastering final</strong> de la obra, creando y diseñando el flujo de trabajo particular de cada proyecto, desde los ¨in house¨, hasta trabajos internacionales en forma remota.
                 </p>
                 <p>
-                  Nuestros trabajos y los años de experiencia avalan nuestra labor diaria; largometrajes, series, comerciales, cortometrajes, videoclips y trabajos para TV y web son nuestra tarea de cada día, todos los días.
+                  Largometrajes, series, comerciales, cortometrajes, videoclips y trabajos para TV y web son nuestra tarea de cada día, <strong>todos los días</strong>.
                 </p>
                 <p>
-                  Contamos con el conocimiento ganado en los últimos 20 años de trabajo para el diseño y asesoramiento de salas de Color Grading profesionales para productoras y casas de post que lo necesiten, considerando la ambientación técnica adecuada, desde la pintura de la sala, pasando por la iluminación, los muebles y hasta el hardware necesario según el tipo de trabajos que se deseen afrontar. Somos los primeros en utilizar, desarrollar y actualizar equipos profesionales de corrección de color y armar salas de color grading profesional en el país.
+                  Contamos con <strong>20 años de experiencia en diseño y asesoramiento para salas de Color Grading profesionales a productoras y casas de post-producción</strong>, considerando la ambientación técnica adecuada; desde la pintura de la sala, pasando por la iluminación, los muebles, y hasta el hardware necesario según el tipo de trabajos que se deseen afrontar. 
+                </p>
+                <p>
+                  Somos los <strong>primeros en utilizar, desarrollar y actualizar equipos profesionales de corrección de color</strong> y armar salas de color grading profesional en el país.
                 </p>
               </section>
               <section className={'associates-content'}>
@@ -84,7 +87,7 @@ const StyledAboutPage = styled.section`
   background: ${(props) => (props.theme.background)};
   min-height: 100vh;
   .about-us-content {
-    margin-top: 64px;
+    margin-top: 60px;
     p {
       font-weight: 200;
       font-size: 22px;

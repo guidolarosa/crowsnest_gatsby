@@ -25,7 +25,8 @@ const NewsPage = ({data}) => {
       sourceUrl: sourceUrl,
       sourceName: sourceName
     };
-  }
+  };
+  
   return (
     <ThemeProvider theme={theme}>
       <StyledNewsPage>
