@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import $ from 'jquery';
 import marquee from 'jquery.marquee';
 
+// FIXME: Component not working properly
+
 const Marquee = (props) => {
     useEffect(() => {
         // console.log(marqueeRef.current);

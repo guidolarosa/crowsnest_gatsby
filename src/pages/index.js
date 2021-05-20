@@ -124,7 +124,7 @@ const fadeIn = keyframes`
 const StyledIndexPage = styled.section`
   background: ${(props) => (props.theme.background)};
   header {
-    height: 100vh;
+    height: 90vh;
   }
   main {
     margin-top: 64px;

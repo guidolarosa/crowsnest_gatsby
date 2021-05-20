@@ -26,7 +26,7 @@ const NewsPage = ({data}) => {
       sourceName: sourceName
     };
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <StyledNewsPage>
@@ -42,7 +42,9 @@ const NewsPage = ({data}) => {
                     <li className={'news-item'}>
                         <div className={'thumbnail'} style={{backgroundImage: `url(${newsPiece.thumbnailUrl})`}}></div>
                         <section className={'news-details'}>
-                          <h3 className={'title'}>{newsPiece.title}</h3>
+                          <div className={'title-container'}>
+                            <h3 className={'title'}>{newsPiece.title}</h3>
+                          </div>
                           <p className={'excerpt'}>{newsPiece.excerpt}</p>
                           <section className={'news-piece-footer'}>
                             <p className={'source'}>{newsPiece.sourceName}</p>
@@ -72,7 +74,7 @@ const StyledNewsPage = styled.section`
     .news-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 380px;
+      grid-auto-rows: 400px;
       grid-column-gap: 10px;
       grid-row-gap: 20px;
       list-style: none;
@@ -100,7 +102,6 @@ const StyledNewsPage = styled.section`
           background-position: center;
         }
         .news-details {
-          padding: 18px;
           flex-grow: 1;
           display: flex;
           flex-direction: column;
@@ -111,11 +112,16 @@ const StyledNewsPage = styled.section`
             overflow: hidden;
             letter-spacing: 1px;
           }
-          .title {
-            font-size: 20px;
-            margin-bottom: 8px;
-            font-weight: 400;
-            -webkit-line-clamp: 2;
+          .title-container {
+            /* background: ${(props) => (props.theme.grey400)}; */
+            min-height: 70px;
+            .title {
+              font-size: 20px;
+              margin-bottom: 8px;
+              font-weight: 400;
+              -webkit-line-clamp: 2;
+              padding: 16px 16px 0;
+            }
           }
           .excerpt {
             font-size: 14px;
@@ -123,20 +129,28 @@ const StyledNewsPage = styled.section`
             line-height: 20px;
             font-weight: 300;
             -webkit-line-clamp: 4;
+            padding:  0 16px;
           }
           .news-piece-footer {
             margin-top: auto;
             display: flex;
-            justify-content: space-between;
+            padding: 0 16px 16px;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
             * {
               margin: 0;
               font-size: 14px;
+            }
+            .source {
+              color: ${(props) => (props.theme.white)};
+              letter-spacing: 1px;
             }
             .source-link {
               background: ${(props) => (props.theme.accent)};
               padding: 0 10px;
               border-radius: 2px;
               cursor: pointer;
+              margin-right: 8px;
               &:hover {
                 background: ${(props) => (props.theme.accentLight)}
               }

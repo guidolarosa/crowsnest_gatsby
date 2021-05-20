@@ -35,6 +35,7 @@ console.log(basicPalette['red'])
 const expandedPalette = {
     ...basicPalette,
     'accentLight': () => (lighten(0.025, basicPalette.accent)),
+    'accentExtraLight': () => (lighten(0.2, basicPalette.accent)),
     'grey600':     () => (lighten(0.15, basicPalette.black)),
     'grey500':     () => (lighten(0.22, basicPalette.black)),
     'grey400':     () => (lighten(0.35, basicPalette.black)),

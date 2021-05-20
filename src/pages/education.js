@@ -6,7 +6,6 @@ import Header from '../common/Header';
 import Container from './../common/Container';
 import Title from './../common/Title';
 import Footer from './../common/Footer';
-import Marquee from './components/Marquee';
 
 import { graphql } from 'gatsby';
 
