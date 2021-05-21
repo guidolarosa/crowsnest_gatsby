@@ -68,8 +68,12 @@ export default NewsPage;
 
 const StyledNewsPage = styled.section`
   background: ${(props) => (props.theme.background)};
+  main {
+    background-color: #000000;
+    padding-top: 60px;
+    background-color: #1f1f1f;
+  }
   .novedades-content {
-    margin-top: 60px;
     padding-bottom: 120px;
     .news-list {
       display: grid;
