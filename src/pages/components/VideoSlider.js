@@ -8,6 +8,8 @@ import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { breakpoints } from './../../utils/theme';
 
+// Slider Component for video items
+
 const VideoSlider = (props) => {
     const { title, content, contentColor } = props;
 
@@ -55,21 +57,23 @@ const VideoSlider = (props) => {
     };
 
     useEffect(() => {
-        if (pageRef.current) {
-            const pageWidth = pageRef.current.getBoundingClientRect().width;
+        if (sliderContainerRef.current) {
+            console.log(sliderContainerRef.current);
+            console.log(sliderContainerRef)
+            const pageWidth = sliderContainerRef.current.getBoundingClientRect().width;
             setPageWidth(pageWidth);
         }
-    }, [pageRef.current, windowWidth]);
+    }, [sliderContainerRef.current, windowWidth]);
 
     const handleArrowLeft = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
+            setCurrentPage(currentPage - 1);
         }
     };
 
     const handleArrowRight = () => {
         if (currentPage < sliderTotalPages) {
-            setCurrentPage(currentPage + 1)
+            setCurrentPage(currentPage + 1);
         }
     };
 
@@ -129,11 +133,22 @@ const VideoSlider = (props) => {
                 </div>
             </div>
             <div className="slider-container" ref={sliderContainerRef}>
-                {pages?.map((productPage) => (
-                    <div className="slider-page" ref={pageRef}>
-                        {productPage.map((item) => {
+                {pages?.map((productPage, index) => (
+                    <div 
+                        key={index} 
+                        className={`
+                            slider-page 
+                            slider-page-${index + 1}
+                            ${index + 1 == currentPage ? 'current-page' : ''}
+                            ${index + 1  == currentPage - 1 ? 'previous-page' : ''}
+                            ${index + 1  == currentPage + 1 ? 'next-page' : ''}
+                        `} 
+                        ref={pageRef}
+                    >
+                        {productPage.map((item, index) => {
                             return (
                                 <VideoItem 
+                                    key={index}
                                     content={item} 
                                     onClick={handleItemSelect}
                                 />
@@ -219,6 +234,12 @@ const StyledVideoSlider = styled(Container)`
             grid-template-rows: 148px;
             min-width: 100%;
             grid-column-gap: 4px;
+            visibility: hidden;
+            &.current-page,
+            &.previous-page,
+            &.next-page {
+                visibility: visible;
+            }
             @media screen and (max-width: ${(props) => (`${breakpoints.s}px`)}) {
                 grid-template-rows: 170px;
             }

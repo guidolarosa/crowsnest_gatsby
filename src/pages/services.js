@@ -4,6 +4,8 @@ import {Helmet} from 'react-helmet';
 import theme from './../utils/theme';
 import Header from '../common/Header';
 import backgroundImage from '../images/services.jpeg';
+import topServicesImage from '../images/color.png';
+import daVinciImage from '../images/davinci.png';
 import Title from './../common/Title';
 import Container from './../common/Container';
 import Footer from './../common/Footer';
@@ -20,30 +22,33 @@ const ServicesPage = () => (
         </Header>
         <main>
           <Container size={'medium'} className={'services-data'}>
-            <Title content={'Nuestros Servicios'} />
-            <p>
-              Acompañamos a nuestros clientes desde el <strong>planeamiento en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas</strong> y los acompañamos hasta la masterización final.
-            </p>
-            <p>
-              Tenemos la tecnología, los conocimientos y el expertise necesario para resolver y asesorar al cliente en todo el camino de su material hasta sus deliveries al archivado y backup final. Cientos de trabajos avalan nuestra experiencia.
-            </p>
-            <section className={'services-breakdown'}>
-              <p>
-                Contamos con <strong>dos islas profesionales de color correction in house con monitores de 2,5K y 4K</strong>, además de estar equipada una de ellas con proyector digital para los clientes que deseen ver su trabajo en formato cinematográfico en una pantalla perlada de 120¨
-              </p>
-              <p>
-                Estamos equipados también equipos portátiles de alta gama para la confección dailies CDL´s en rodaje y la creación de Lut´s en el set en casos que así lo requieran.
-              </p>
-              <p>
-                Utilizamos soft de color correction DaVinci Resolve Studio y Assimilate Scratch VR, instrumentos de medición de señales portables y tecnología de calibración de monitores X-Rite.
-              </p>
-            </section>
-            <section className={'budgets'}>
-              <Title content={'Presupuestos Flexibles'} />
-              <p>
-                Nos adaptamos a cada tipo de necesidad y presupuesto. Cada caso en particular es estudiado y siempre podemos adaptarlo. Contamos variantes de formas de trabajo que pueden realizarse para economizar recursos sin perder calidad final, para satisfacer la demanda del mercado.
-              </p>
-            </section>
+            <div className="services-block main-block">
+              <div className="background-image"></div>
+              <div className="text-box">
+                <h2>Con un ojo siempre en el color</h2>
+                <p>
+                  Acompañamos a nuestros clientes desde el <strong>planeamiento en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas</strong> y los acompañamos hasta la <strong>masterización final.</strong>
+                </p>
+              </div>
+            </div>
+            <div className="services-block equipment-block">
+              <div className="background-image"></div>
+              <div className="text-box">
+                <h2>Hay equipo(s)</h2>
+                <p>
+                  Contamos con <strong>dos islas profesionales de color correction in house con monitores de 2,5K y 4K</strong>, además de estar equipada una de ellas con proyector digital para los clientes que deseen ver su trabajo en formato cinematográfico en pantalla perlada de 120¨
+                </p>
+                <p>
+                  Estamos equipados también <strong>equipos portátiles de alta gama para la confección dailies CDL's en rodaje y la creación de Lut´s</strong> en el set en casos que así lo requieran.
+                </p>
+                <p>
+                  Utilizamos soft de color correction DaVinci Resolve Studio y Assimilate Scratch VR, instrumentos de medición de señales portables y tecnología de calibración de monitores X-Rite.
+                </p>
+                <a className="show-full-list-link" href="#">
+                  Ver listado completo de equipos
+                </a>
+              </div>
+            </div>
           </Container>
         </main>
         <Footer />
@@ -66,17 +71,99 @@ const StyledServicesPage = styled.section`
       }
     }
     .services-data {
-      margin-top: 60px;
+      margin-top: 86px;
       margin-bottom: 120px;
       font-size: 22px;
       line-height: 30px;
       font-weight: 300;
-      padding-right: 10%;
-      p {
-        opacity: .7;
+      .services-block {
+        width: 100%;
+        position: relative;
+        margin-bottom: 88px;
+        .text-box {
+          padding: 24px;
+          padding-top: 32px;
+          border-radius: 20px;
+          background: rgba(0,0,0,.8);
+          font-size: 18px;
+          font-weight: 300;
+          backdrop-filter: blur(5px);
+          h2 {
+            font-size: 32px;
+            padding-right: 40px;
+            line-height: 48px;
+          }
+          p {
+            opacity: .7;
+            strong {
+              font-weight: 500;
+            }
+          }
+        }
       }
-      .budgets {
-        margin-top: 80px;
+      .equipment-block {
+        display: flex;
+        height: 536px;
+        @media screen and (max-width: ${breakpoints.md + 'px'}) {
+          flex-direction: column;
+          height: unset;
+        }
+        .background-image {
+          position: absolute;
+          height: inherit;
+          width: 623px;
+          left: 0;
+          top: 0;
+          background-size: 100%;
+          background-image: url(${daVinciImage});
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+        .text-box {
+          right: 0;
+          width: calc(100% - 480px);
+          margin-left: auto;
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            width: 100%;
+          }
+          .show-full-list-link {
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid ${(props) => (props.theme.accent)};
+            padding-bottom: 4px;
+          }
+        }
+      }
+      .main-block {
+        height: 336px;
+        @media screen and (max-width: ${breakpoints.md + 'px'}) {
+          margin-bottom: 260px;
+        }
+        .background-image {
+          width: 100%;
+          height: inherit;
+          background-color: ${(props) => (props.theme.accent)};
+          border-radius: 20px;
+          background-image: url(${topServicesImage});
+          background-size: cover;
+          background-position: center;
+        }
+        .text-box {
+          width: 380px;
+          top: 24px;
+          left: 24px;
+          position: absolute;
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            width: calc(100% - 48px);
+            top: 200px;
+          }
+        }
       }
     }
     @media screen and (max-width: ${breakpoints.md + 'px'}) {
@@ -87,6 +174,7 @@ const StyledServicesPage = styled.section`
           flex-grow: unset;
           background-size: 300%;
           background-position: 90%;
+          display: none;
         }
       }
     }

@@ -1,101 +1,109 @@
 {
-    "Main" : {
-      "title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "title"
-        }
-      },
-      "body" : {
-        "type" : "Slices",
-        "fieldset" : "Slice zone",
-        "config" : {
-          "choices" : {
-            "anadir_contenido" : {
-              "type" : "Slice",
-              "fieldset" : "Añadir contenido",
-              "description" : "Añadir contenido a Color Grading",
-              "icon" : "local_movies",
-              "display" : "list",
-              "non-repeat" : {
-                "product_title" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-                    "label" : "product_title",
-                    "placeholder" : "Título del contenido"
-                  }
-                },
-                "product_thumbnail" : {
-                  "type" : "Image",
-                  "config" : {
-                    "constraint" : { },
-                    "thumbnails" : [ ],
-                    "label" : "product thumbnail"
-                  }
-                },
-                "product_type" : {
-                  "type" : "Select",
-                  "config" : {
-                    "options" : [ "largometraje", "cortometraje", "serie", "videoclip", "comercial" ],
-                    "label" : "product type",
-                    "placeholder" : "Tipo de contenido"
-                  }
-                },
-                "product_year" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "product year",
-                    "placeholder" : "Año de lanzamiento"
-                  }
-                },
-                "product_directed_by" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "Dirgido por...",
-                    "placeholder" : "Dirigido por..."
-                  }
-                },
-                "product_photography_by" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "Dirección de fotografía por...",
-                    "placeholder" : "Dirección de fotografía por..."
-                  }
-                },
-                "product_art_by" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "Dirección de arte por...",
-                    "placeholder" : "Dirección de arte por..."
-                  }
-                },
-                "product_produced_by" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "Producido por...",
-                    "placeholder" : "Producido por..."
-                  }
-                },
-                "product_vimeo_id" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                    "label" : "ID de Vimeo",
-                    "placeholder" : "ID de Vimeo"
-                  }
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "title"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "anadir_contenido": {
+            "type": "Slice",
+            "fieldset": "Añadir contenido",
+            "description": "Añadir contenido a Color Grading",
+            "icon": "local_movies",
+            "display": "list",
+            "non-repeat": {
+              "product_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "product_title",
+                  "placeholder": "Título del contenido"
                 }
               },
-              "repeat" : { }
-            }
+              "product_thumbnail": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "product thumbnail"
+                }
+              },
+              "product_type": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "largometraje",
+                    "cortometraje",
+                    "serie",
+                    "videoclip",
+                    "comercial",
+                    "reels-cursos",
+                    "documentales"
+                  ],
+                  "label": "product type",
+                  "placeholder": "Tipo de contenido"
+                }
+              },
+              "product_year": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "product year",
+                  "placeholder": "Año de lanzamiento"
+                }
+              },
+              "product_directed_by": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Dirgido por...",
+                  "placeholder": "Dirigido por..."
+                }
+              },
+              "product_photography_by": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Dirección de fotografía por...",
+                  "placeholder": "Dirección de fotografía por..."
+                }
+              },
+              "product_art_by": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Dirección de arte por...",
+                  "placeholder": "Dirección de arte por..."
+                }
+              },
+              "product_produced_by": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Producido por...",
+                  "placeholder": "Producido por..."
+                }
+              },
+              "product_vimeo_id": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "ID de Vimeo",
+                  "placeholder": "ID de Vimeo"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
     }
   }
+}
