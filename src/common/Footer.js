@@ -10,7 +10,7 @@ const Footer = (props) => {
             <Container className={'footer-content'} size="medium" flex>
                 <div className="address-container">
                     <address>
-                        <span>Arévalo</span>
+                        <span>Arévalo 1853</span>
                         <span className="divider">/</span>
                         <span>C1414CQK - Palermo</span>
                         <span className="divider">/</span>
