@@ -5,6 +5,9 @@ export const videoContentColors = {
     comerciales: theme.blue,
     series: theme.yellow,
     videoclips: theme.green,
+    cortometrajes: theme.purple,
+    reels: theme.orange,
+    documentales: theme.accent,
 };
 
 export const externalLinks = {

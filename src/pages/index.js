@@ -48,17 +48,17 @@ const IndexPage = ({ data }) => {
     {
       title: 'Cortometrajes',
       content: cortometrajes,
-      contentColor: videoContentColors.videoclips,
+      contentColor: videoContentColors.cortometrajes,
     },
     {
       title: 'Reels - Cursos',
       content: reels,
-      contentColor: videoContentColors.videoclips,
+      contentColor: videoContentColors.reels,
     },
     {
       title: 'Documentales',
       content: documentales,
-      contentColor: videoContentColors.videoclips,
+      contentColor: videoContentColors.documentales,
     },
   ];
 

@@ -25,6 +25,8 @@ const basicPalette = {
     'green': '#3BCC49',
     'yellow': '#FFD336',
     'purple': '#C550EE',
+    'orange': '#fcba03',
+    'lime': '#bbff78'
 };
 
 function getRandomInt(max) {
