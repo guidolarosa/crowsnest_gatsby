@@ -46,13 +46,15 @@ const SliderGallery = (props) => {
             <div className={'gradient-container'} />
             <Container size={'medium'} className={'gallery-wrapper'}>
                 <Title tag={'h1'} content={'Nuestros trabajos'} />
-                {slidersData.map((videoSlider) => (
-                <VideoSlider
-                    title={videoSlider.title}
-                    content={videoSlider.content}
-                    contentColor={videoSlider.contentColor}
-                />
-                ))}
+                {slidersData && (
+                    slidersData.map((videoSlider) => (
+                        <VideoSlider
+                            title={videoSlider.title}
+                            content={videoSlider.content}
+                            contentColor={videoSlider.contentColor}
+                        />
+                    ))
+                )}
             </Container>
         </StyledSliderGallery>
     )
