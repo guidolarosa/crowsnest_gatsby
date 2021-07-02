@@ -6,7 +6,6 @@ import Header from '../common/Header';
 import backgroundImage from '../images/services.jpeg';
 import topServicesImage from '../images/color.png';
 import daVinciImage from '../images/davinci.png';
-import Title from './../common/Title';
 import Container from './../common/Container';
 import Footer from './../common/Footer';
 import { breakpoints } from './../utils/theme';

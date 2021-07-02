@@ -20,6 +20,9 @@ const IndexPage = ({ data }) => {
   const comerciales = allProducts.filter((product) => product.primary.product_type == 'comercial');
   const series = allProducts.filter((product) => product.primary.product_type == 'serie');
   const largometrajes = allProducts.filter((product) => product.primary.product_type == 'largometraje');
+  const cortometrajes = allProducts.filter((product) => product.primary.product_type == 'cortometraje');
+  const reels = allProducts.filter((product) => product.primary.product_type == 'reels-cursos');
+  const documentales = allProducts.filter((product) => product.primary.product_type == 'documentales');
 
   const videoSliders = [
     {
@@ -40,6 +43,21 @@ const IndexPage = ({ data }) => {
     {
       title: 'Videoclips',
       content: videoclips,
+      contentColor: videoContentColors.videoclips,
+    },
+    {
+      title: 'Cortometrajes',
+      content: cortometrajes,
+      contentColor: videoContentColors.videoclips,
+    },
+    {
+      title: 'Reels - Cursos',
+      content: reels,
+      contentColor: videoContentColors.videoclips,
+    },
+    {
+      title: 'Documentales',
+      content: documentales,
       contentColor: videoContentColors.videoclips,
     },
   ];
