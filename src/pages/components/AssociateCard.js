@@ -41,8 +41,10 @@ const StyledAssociateCard = styled.div`
         height: 120px;
         border-radius: 60px;
         background: ${(props) => (props.theme.blue)};
-        background-size: 90%;
+        background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        filter: grayscale(1);
     }
     .associate-details {
         padding-left: 24px;
