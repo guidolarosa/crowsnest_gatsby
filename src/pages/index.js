@@ -16,6 +16,8 @@ const IndexPage = ({ data }) => {
 
   const allProducts = data.allPrismicColorGrading.nodes[0].dataRaw.body;
 
+  const heroImage = data.allPrismicIndex.nodes[0].dataRaw.imagen_del_hero.url;
+
   const videoclips = allProducts.filter((product) => product.primary.product_type == 'videoclip');
   const comerciales = allProducts.filter((product) => product.primary.product_type == 'comercial');
   const series = allProducts.filter((product) => product.primary.product_type == 'serie');
@@ -69,7 +71,7 @@ const IndexPage = ({ data }) => {
             <title>Crows Nest - Professional Color Grading</title>
           </Helmet>
           <Header>
-            <Hero />
+            <Hero heroImageUrl={heroImage}/>
           </Header>
           <main>
             <Container size="full">
@@ -99,8 +101,13 @@ const StyledIndexPage = styled.section`
 `;
 
 export const query = graphql`
-  query ColorGradingProducts {
+  query IndexHeroAndColorGradingProducts {
     allPrismicColorGrading {
+      nodes {
+        dataRaw
+      }
+    }
+    allPrismicIndex {
       nodes {
         dataRaw
       }

@@ -2,15 +2,14 @@ import * as React from "react";
 import styled, {keyframes} from 'styled-components';
 import Container from '../../common/Container';
 import Button from '../../common/Button';
-import backgroundImage from '../../images/hero_background.png';
 import {breakpoints, boxShadow} from './../../utils/theme';
 
-const Hero = () => {
+const Hero = (props) => {
     return (
         <StyledHero
             size={'full'} 
             className={'hero'} 
-            style={{backgroundImage: `url(${backgroundImage})`}}
+            style={{backgroundImage: `url(${props.heroImageUrl})`}}
         >
             <Container size={'medium'}>
               <Container 

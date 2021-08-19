@@ -9,6 +9,7 @@ import Footer from './../common/Footer';
 import GoogleMap from './../common/GoogleMap';
 import {AiOutlineMail, AiOutlineInstagram, AiFillFacebook} from 'react-icons/ai';
 import { externalLinks } from "../utils/UIConstants";
+import FrontImage from './../images/services/frente.jpg';
 
 const ContactPage = () => (
   <ThemeProvider theme={theme}>
@@ -23,6 +24,7 @@ const ContactPage = () => (
           </Container>
           <Container size={'medium'} className={'map-container'}>
             <GoogleMap darkMode src={externalLinks.googleMaps} className={'map-wrapper'} />
+            <div className="front-image" />
           </Container>
           <Container size={'medium'} className={'links-container'}>
             <div className="links-column">
@@ -71,9 +73,19 @@ const StyledContactPage = styled.section`
     margin-top: 60px;
   }
   .map-container {
+    display: flex;
+    flex-direction: row-reverse;
     .map-wrapper {
       /* box-shadow: 0 0 8px rgba(0,0,0, .8); */
       /* border-radius: 20px; */
+    }
+    .front-image {
+      background-image: url(${FrontImage});
+      width: 60%;
+      height: 400px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom;
     }
   }
   .links-container {

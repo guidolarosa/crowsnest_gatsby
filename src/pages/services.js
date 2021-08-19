@@ -10,6 +10,15 @@ import Container from './../common/Container';
 import Footer from './../common/Footer';
 import { breakpoints } from './../utils/theme';
 
+import SalaPrincipal from './../images/services/sala_principal.jpg'
+import SalaProyeccion from './../images/services/sala_proyeccion.jpg'
+import SalaProyeccion2 from './../images/services/sala_proyeccion2.jpg'
+import SalaConformado from './../images/services/sala_conformado_color.jpg'
+import SalaConformado2 from './../images/services/detalle_sala_conformado.jpg'
+import SalaFX from './../images/services/MYM_sala_fx.jpg'
+import Terraza from './../images/services/terraza.jpg'
+import SalaReuniones from './../images/services/sala_reuniones.jpg'
+
 const ServicesPage = () => (
   <ThemeProvider theme={theme}>
     <StyledServicesPage>
@@ -48,6 +57,35 @@ const ServicesPage = () => (
                 </a>
               </div>
             </div>
+            <section className="salas">
+              <h1>Nuestras Salas</h1>
+              <div className="sala">
+                <h2 className="title-sala">Sala de Proyección</h2>
+                <div class="images">
+                  <img src={SalaProyeccion} />
+                  <img src={SalaProyeccion2} />
+                </div>
+              </div>
+              <div className="sala">
+                <h2 className="title-sala">Sala de Conformado</h2>
+                <div className="images">
+                  <img src={SalaConformado} />
+                  <img src={SalaConformado2} />
+                </div>
+              </div>
+              <div className="sala">
+                <h2 className="title-sala">Sala de FX</h2>
+                <img src={SalaFX} />
+              </div>
+              <div className="sala">
+                <h2 className="title-sala">Sala de Reuniones</h2>
+                <img src={SalaReuniones} />
+              </div>
+              <div className="sala">
+                <h2 className="title-sala">Terraza</h2>
+                <img src={Terraza} />
+              </div>
+            </section>
           </Container>
         </main>
         <Footer />
@@ -174,6 +212,23 @@ const StyledServicesPage = styled.section`
           background-size: 300%;
           background-position: 90%;
           display: none;
+        }
+      }
+    }
+    .sala {
+      margin-bottom: 80px;
+      img {
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+      .images {
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 49%;
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            width: 100%;
+          }
         }
       }
     }

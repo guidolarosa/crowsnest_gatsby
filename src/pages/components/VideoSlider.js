@@ -42,12 +42,7 @@ const VideoSlider = (props) => {
         }
     }, [pages]);
 
-    useEffect(() => {
-        console.log(currentPage);
-    }, [currentPage])
-
     const handleItemSelect = (item) => {
-        // console.log(item);
         setSelectedItem(item);
         setIsModalOpen(true);
     };
@@ -58,8 +53,6 @@ const VideoSlider = (props) => {
 
     useEffect(() => {
         if (sliderContainerRef.current) {
-            console.log(sliderContainerRef.current);
-            console.log(sliderContainerRef)
             const pageWidth = sliderContainerRef.current.getBoundingClientRect().width;
             setPageWidth(pageWidth);
         }
@@ -84,19 +77,14 @@ const VideoSlider = (props) => {
     }, [currentPage]);
 
     const handleWindowWidth = (width) => {
-        console.log(width, breakpoints.md)
         if (width < breakpoints.md && width > breakpoints.s) {
             setPageSize(3);
-            console.log('tablet')
         } else if (width <= breakpoints.s && width > breakpoints.xs)  {
             setPageSize(2);
-            console.log('phone-l')
         } else if (width <= breakpoints.xs) {
             setPageSize(1);
-            console.log('phone')
         } else {
             setPageSize(4);
-            console.log('default')
         }
     }
 
