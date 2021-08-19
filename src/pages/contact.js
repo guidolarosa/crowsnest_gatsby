@@ -10,6 +10,7 @@ import GoogleMap from './../common/GoogleMap';
 import {AiOutlineMail, AiOutlineInstagram, AiFillFacebook} from 'react-icons/ai';
 import { externalLinks } from "../utils/UIConstants";
 import FrontImage from './../images/services/frente.jpg';
+import CNLogo from './../images/Logo Crow Nest V 07.jpg';
 
 const ContactPage = () => (
   <ThemeProvider theme={theme}>
@@ -53,6 +54,9 @@ const ContactPage = () => (
               </a>
             </div>
           </Container>
+          <div className="logo-container">
+            <div className="img" />
+          </div>
         </main>
         <Footer />
     </StyledContactPage>
@@ -108,6 +112,19 @@ const StyledContactPage = styled.section`
           flex-direction: column;
         }
       }
+    }
+  }
+  .logo-container {
+    display: flex;
+    .img {
+      width: 300px;
+      height: 300px;
+      background-image: url('${CNLogo}');
+      background-position: center;
+      background-size: 114.2%;
+      margin: 80px auto;
+      border-radius: 100%;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
     }
   }
 `;
