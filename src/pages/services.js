@@ -10,7 +10,6 @@ import Container from './../common/Container';
 import Footer from './../common/Footer';
 import { breakpoints } from './../utils/theme';
 
-import SalaPrincipal from './../images/services/sala_principal.jpg'
 import SalaProyeccion from './../images/services/sala_proyeccion.jpg'
 import SalaProyeccion2 from './../images/services/sala_proyeccion2.jpg'
 import SalaConformado from './../images/services/sala_conformado_color.jpg'
