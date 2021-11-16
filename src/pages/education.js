@@ -21,22 +21,29 @@ const EducationPage = ({data}) => {
       <StyledEducationPage>
           <Helmet>
             <title>Crows Nest - Professional Color Grading | Educación</title>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
           </Helmet>
           <Header>
           </Header>
           <Container size={'medium'}>
             <main>
               <section className={'education-content'}>
-                <Title content={'Nuestros cursos'} />
-                <p>
-                  Dictamos <strong>cursos de manejo de software de color de forma personalizada e individual</strong>, ya sean aspirantes a coloristas que desean profundizar conocimientos, directores de fotografía, editores, montajistas o vfx´s  para actualizarlos en el manejo de nuevas versiones de software de corrección de color del mercado, tips y estrategias para realizar proyectos desde su inicio.
-                </p>
-                <p>
-                  Realizamos también <strong>tutorías para ¨coloristas noveles¨</strong> que desean tomar sus primeros pasos en este oficio de manera correcta acompañándolos y aconcejándolos en sus proyectos <strong>de la mano de verdaderos coloristas profesionales con cualquiera de las herramientas</strong> utilizadas en la actualidad, haciendo hincapié en las formas de trabajo y métodos más eficientes en los flujos de trabajo actuales.
-                </p>
-                <p>
-                  También <strong>diseñamos cursos a medida, capacitaciones y workshops de Color Grading y Software</strong> para empresas, productoras y casas de post-producción que necesitan actualizarse en el manejo y conocimiento de nuevas tecnologías de corrección de color, y a estudiantes universitarios o de carreras afines a la educación audiovisual, tanto <strong>en el país como en el exterior</strong>.
-                </p>
+                <div className="content-copy">
+                  <Title content={'Nuestros cursos'} />
+                  <p>
+                    Dictamos <strong>cursos de manejo de software de color de forma personalizada e individual</strong>, ya sean aspirantes a coloristas que desean profundizar conocimientos, directores de fotografía, editores, montajistas o vfx´s  para actualizarlos en el manejo de nuevas versiones de software de corrección de color del mercado, tips y estrategias para realizar proyectos desde su inicio.
+                  </p>
+                  <p>
+                    Realizamos también <strong>tutorías para ¨coloristas noveles¨</strong> que desean tomar sus primeros pasos en este oficio de manera correcta acompañándolos y aconcejándolos en sus proyectos <strong>de la mano de verdaderos coloristas profesionales con cualquiera de las herramientas</strong> utilizadas en la actualidad, haciendo hincapié en las formas de trabajo y métodos más eficientes en los flujos de trabajo actuales.
+                  </p>
+                  <p>
+                    También <strong>diseñamos cursos a medida, capacitaciones y workshops de Color Grading y Software</strong> para empresas, productoras y casas de post-producción que necesitan actualizarse en el manejo y conocimiento de nuevas tecnologías de corrección de color, y a estudiantes universitarios o de carreras afines a la educación audiovisual, tanto <strong>en el país como en el exterior</strong>.
+                  </p>
+                </div>
+                <div className="content-image">
+                  <img src="/UDLA.jpg" />
+                  <img src="/UDLA2.jpg" />
+                </div>
               </section>
               <Container size={'full'}>
                 <Container size={'medium'}>
@@ -68,7 +75,22 @@ const StyledEducationPage = styled.section`
     padding-bottom: 120px;
     .education-content {
       margin-top: 60px;
-      padding-right: 30%;
+      /* padding-right: 30%; */
+      display: flex;
+      justify-content: space-between;
+      .content-copy {
+        flex-grow: 1;
+        padding-right: 32px;
+      }
+      .content-image {
+        min-width: calc(30% - 24px);
+        margin-top: 80px;
+        img {
+          margin-bottom: 24px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+      }
       p {
         font-size: 22px;
         line-height: 30px;
@@ -116,6 +138,11 @@ const StyledEducationPage = styled.section`
     main {
       .education-content {
         padding-right: 0;
+        flex-direction: column;
+        .content-copy,
+        .content-image {
+          width: 100%;
+        }
       }
       .educational-gallery {
         .logo-list {

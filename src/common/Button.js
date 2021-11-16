@@ -15,7 +15,7 @@ const Button = (props) => {
     return (
         <StyledButton className={className ? className : null}>
             {type === 'link' ? (
-                <Link to={href}>{label}</Link>
+                <a href={href}>{label}</a>
             ) : (
                 <button type={'button'} onClick={onClick} value={label} />
             )}
@@ -29,7 +29,7 @@ const StyledButton = styled.span`
     display: inline-block;
     a, button {
         background: ${(props) => (props.theme.accent)};
-        padding: 18px;
+        padding: 8px;
         border-radius: 5px;
         text-decoration: none;
         font-size: 24px;

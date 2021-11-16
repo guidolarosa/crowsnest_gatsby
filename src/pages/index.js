@@ -70,6 +70,7 @@ const IndexPage = ({ data }) => {
       <StyledIndexPage>
           <Helmet>
             <title>Crows Nest - Professional Color Grading</title>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
           </Helmet>
           <Header>
             <Hero heroImageUrl={heroImage}/>

@@ -11,8 +11,14 @@ import eduSierraPic from '../images/edu_sierra.webp';
 import lauraPic from '../images/laura.jpg';
 import fernandoPic from '../images/fernando.png';
 import backgroundImage from '../images/hero_background.png';
+import { graphql } from 'gatsby';
 
-const AboutPage = () => {
+const AboutPage = ({ data }) => {
+
+  const heroImage = data.allPrismicIndex.nodes[0].dataRaw.imagen_del_hero.url;
+
+  console.log(heroImage)
+
   const associateData = [
     {
       name: 'Laura Viviani',
@@ -45,7 +51,7 @@ const AboutPage = () => {
   ]
   return (
     <ThemeProvider theme={theme}>
-      <StyledAboutPage>
+      <StyledAboutPage topImage={heroImage}>
           <Helmet>
             <title>Crows Nest - Professional Color Grading | Nosotros</title>
           </Helmet>
@@ -102,7 +108,7 @@ const StyledAboutPage = styled.section`
     padding: 60px 32px 32px 0;
     .background-image {
       background-color: ${(props) => (props.theme.black)};
-      background-image: url(${backgroundImage});
+      background-image: url(${(props) => (props.topImage)});
       width: 100%;
       height: 100%;
       background-size: cover;
@@ -153,6 +159,21 @@ const StyledAboutPage = styled.section`
         p {
           padding-right: 0;
         }
+      }
+    }
+  }
+`;
+
+export const query = graphql`
+  query indexHeroAndColorGradingProductsAndIndexHeroAndColorGradingProducts {
+    allPrismicColorGrading {
+      nodes {
+        dataRaw
+      }
+    }
+    allPrismicIndex {
+      nodes {
+        dataRaw
       }
     }
   }

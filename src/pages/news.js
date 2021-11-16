@@ -7,6 +7,7 @@ import Container from '../common/Container';
 import Footer from '../common/Footer';
 import {breakpoints} from './../utils/theme';
 import {graphql} from 'gatsby';
+import { Helmet } from "react-helmet";
 
 const NewsPage = ({data}) => {
   let news = data.allPrismicNoticias.nodes[0].dataRaw.body;
@@ -29,9 +30,10 @@ const NewsPage = ({data}) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <Helmet>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
+      </Helmet>
       <StyledNewsPage>
-          <Header>
-          </Header>
           <main>
             <Container size="medium" className={'novedades-content'}>
               <Title content={'Últimas novedades'} />
@@ -40,18 +42,18 @@ const NewsPage = ({data}) => {
                   let newsPiece = formatNewsPiece(rawNewsPiece);
                   return (
                     <li className={'news-item'}>
-                        <div className={'thumbnail'} style={{backgroundImage: `url(${newsPiece.thumbnailUrl})`}}></div>
-                        <section className={'news-details'}>
-                          <div className={'title-container'}>
-                            <h3 className={'title'}>{newsPiece.title}</h3>
-                          </div>
-                          <p className={'excerpt'}>{newsPiece.excerpt}</p>
-                          <section className={'news-piece-footer'}>
-                            <p className={'source'}>{newsPiece.sourceName}</p>
-                            <a className={'source-link'} href={newsPiece.sourceUrl}>Ir a la nota</a>
-                          </section>
+                      <div className={'thumbnail'} style={{backgroundImage: `url(${newsPiece.thumbnailUrl})`}}></div>
+                      <section className={'news-details'}>
+                        <div className={'title-container'}>
+                          <h3 className={'title'}>{newsPiece.title}</h3>
+                        </div>
+                        <p className={'excerpt'}>{newsPiece.excerpt}</p>
+                        <section className={'news-piece-footer'}>
+                          <p className={'source'}>{newsPiece.sourceName}</p>
+                          <a className={'source-link'} href={newsPiece.sourceUrl}>Ir a la nota</a>
                         </section>
-                      </li>
+                      </section>
+                    </li>
                   )
                 })}
               </ul>

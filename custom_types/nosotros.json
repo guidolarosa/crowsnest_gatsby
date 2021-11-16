@@ -1,0 +1,71 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Título",
+          "placeholder" : "Título de la sección"
+        }
+      },
+      "about_us" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,strong,em,hyperlink,list-item,o-list-item",
+          "label" : "sobre nosotros",
+          "placeholder" : "Información sobre Crows Nest"
+        }
+      },
+      "nosotros_top_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "nosotros top image"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "choices" : {
+            "miembro" : {
+              "type" : "Slice",
+              "fieldset" : "Miembro",
+              "description" : "Añadir nuevo miembro de Crows Nest",
+              "icon" : "face",
+              "display" : "list",
+              "non-repeat" : {
+                "name" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+                    "label" : "Nombre",
+                    "placeholder" : "Nombre del miembro"
+                  }
+                },
+                "portrait" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "portrait"
+                  }
+                }
+              },
+              "repeat" : {
+                "member_data" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph,strong,em,hyperlink,list-item,o-list-item",
+                    "label" : "Información",
+                    "placeholder" : "Información sobre el miembro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

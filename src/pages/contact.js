@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled, {ThemeProvider} from 'styled-components';
 import {Helmet} from 'react-helmet';
-import theme from './../utils/theme';
+import theme, {breakpoints} from './../utils/theme';
 import Header from '../common/Header';
 import Title from './../common/Title';
 import Container from './../common/Container';
@@ -11,6 +11,8 @@ import {AiOutlineMail, AiOutlineInstagram, AiFillFacebook} from 'react-icons/ai'
 import { externalLinks } from "../utils/UIConstants";
 import FrontImage from './../images/services/frente.jpg';
 import CNLogo from './../images/Logo Crow Nest V 07.jpg';
+import AACLogo from './../images/miembro.jpg';
+
 
 const ContactPage = () => (
   <ThemeProvider theme={theme}>
@@ -40,22 +42,23 @@ const ContactPage = () => (
               </div>
             </div>
             <div className="links-column">
-              <a href="#" className="link-item">
+              <a href="mailto:crowsnestpcg@gmail.com" className="link-item">
                 <AiOutlineMail title={'Mail'}/>
                 <span>crowsnestpcg@gmail.com</span>
               </a>
-              <a href="#" className="link-item">
+              <a target="_blank" href="https://www.instagram.com/crowsnestcolor/" className="link-item">
                 <AiOutlineInstagram title={'Instagram'}/>
-                <span>Instagram</span>
+                <span>@crowsnestcolor</span>
               </a>
-              <a href="#" className="link-item">
+              <a target="blank" href="https://www.facebook.com/crownestcolor" className="link-item">
                 <AiFillFacebook title={'Facebook'}/>
                 <span>Facebook</span>
               </a>
             </div>
           </Container>
           <div className="logo-container">
-            <div className="img" />
+            <div className="logo" />
+            <div className="logo" />
           </div>
         </main>
         <Footer />
@@ -116,15 +119,27 @@ const StyledContactPage = styled.section`
   }
   .logo-container {
     display: flex;
-    .img {
+    justify-content: space-evenly;
+    @media screen and (max-width: ${breakpoints.md + 'px'}) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
       width: 300px;
       height: 300px;
       background-image: url('${CNLogo}');
       background-position: center;
       background-size: 114.2%;
-      margin: 80px auto;
+      margin: 80px 30px;
       border-radius: 100%;
       filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+      &:nth-child(2) {
+        background-image: url('${AACLogo}');
+        border-radius: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 420px;
+      }
     }
   }
 `;

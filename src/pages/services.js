@@ -14,7 +14,7 @@ import SalaProyeccion from './../images/services/sala_proyeccion.jpg'
 import SalaProyeccion2 from './../images/services/sala_proyeccion2.jpg'
 import SalaConformado from './../images/services/sala_conformado_color.jpg'
 import SalaConformado2 from './../images/services/detalle_sala_conformado.jpg'
-import SalaFX from './../images/services/MYM_sala_fx.jpg'
+import SalaFX from './../images/services/mym_post.jpg'
 import Terraza from './../images/services/terraza.jpg'
 import SalaReuniones from './../images/services/sala_reuniones.jpg'
 
@@ -25,7 +25,7 @@ const ServicesPage = () => (
             <title>Crows Nest - Professional Color Grading | Nuestros servicios</title>
           </Helmet>
         <Header>
-          <div className={'services-hero'} style={{backgroundImage: `url(${backgroundImage})`}}></div>
+          {/* <div className={'services-hero'} style={{backgroundImage: `url(${backgroundImage})`}}></div> */}
         </Header>
         <main>
           <Container size={'medium'} className={'services-data'}>
@@ -66,18 +66,18 @@ const ServicesPage = () => (
                 </div>
               </div>
               <div className="sala">
-                <h2 className="title-sala">Sala de Conformado</h2>
+                <h2 className="title-sala">Sala de Conformado y Grading</h2>
                 <div className="images">
                   <img src={SalaConformado} />
                   <img src={SalaConformado2} />
                 </div>
               </div>
               <div className="sala">
-                <h2 className="title-sala">Sala de FX</h2>
+                <h2 className="title-sala">Sala de VFX - MyM Post</h2>
                 <img src={SalaFX} />
               </div>
               <div className="sala">
-                <h2 className="title-sala">Sala de Reuniones</h2>
+                <h2 className="title-sala">Amenities</h2>
                 <img src={SalaReuniones} />
               </div>
               <div className="sala">
@@ -97,7 +97,7 @@ export default ServicesPage;
 const StyledServicesPage = styled.section`
     background: ${(props) => (props.theme.background)};
     header {
-      min-height: 40vh;
+      /* min-height: 40vh; */
       .services-hero {
         background-size: auto 500px;
         height: 100%;
@@ -187,7 +187,7 @@ const StyledServicesPage = styled.section`
           background-color: ${(props) => (props.theme.accent)};
           border-radius: 20px;
           background-image: url(${topServicesImage});
-          background-size: cover;
+          background-size: 160%;
           background-position: center;
         }
         .text-box {

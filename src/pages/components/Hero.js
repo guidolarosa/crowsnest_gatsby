@@ -23,7 +23,7 @@ const Hero = (props) => {
                 <p>Transformá la manera en la que se ven tus películas</p>
                 <Button 
                     className={'hero-cta'} 
-                    label={'Informate'} 
+                    label={'Nuestros servicios'} 
                     type={'link'} 
                     href="/services" 
                 />
@@ -60,6 +60,7 @@ const StyledHero = styled(Container)`
         position: absolute;
         background: linear-gradient(180deg, transparent, ${(props) => (props.theme.background)});
         bottom: 0;
+        pointer-events: none;
     }
     .hero-card {
         background: rgba(0,0,0,.1);
@@ -72,7 +73,7 @@ const StyledHero = styled(Container)`
         position: relative;
         box-shadow: ${boxShadow.l};
         h1 {
-            font-size: 84px;
+            font-size: 64px;
             font-weight: 200;
             margin: 0;
             b {
@@ -90,6 +91,10 @@ const StyledHero = styled(Container)`
         .hero-cta {
             margin-top: 18px;
             width: 200px;
+            a {
+                font-size: 16px;
+
+            }
         }
     }
     @media screen and (max-width: ${breakpoints.s + 'px'}) {
