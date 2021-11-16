@@ -3,8 +3,7 @@ import styled, {ThemeProvider} from 'styled-components';
 import {Helmet} from 'react-helmet';
 import theme from './../utils/theme';
 import Header from '../common/Header';
-import backgroundImage from '../images/services.jpeg';
-import topServicesImage from '../images/color.png';
+import topServicesImage from '../images/services/detalle_2.jpg';
 import daVinciImage from '../images/davinci.png';
 import Container from './../common/Container';
 import Footer from './../common/Footer';
@@ -29,16 +28,20 @@ const ServicesPage = () => (
           {/* <div className={'services-hero'} style={{backgroundImage: `url(${backgroundImage})`}}></div> */}
         </Header>
         <main>
-          <Container size={'medium'} className={'services-data'}>
-            <div className="services-block main-block">
+          <Container size="full" className="services-data">
+            <div className="services-block ">
               <div className="background-image"></div>
-              <div className="text-box">
-                <h2>Con un ojo siempre en el color</h2>
-                <p>
-                  Acompañamos a nuestros clientes desde el <strong>planeamiento en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas</strong> y los acompañamos hasta la <strong>masterización final.</strong>
-                </p>
-              </div>
+              <Container size="medium" >
+                <div className="text-box">
+                  <h2>Con un ojo siempre en el color</h2>
+                  <p>
+                    Acompañamos a nuestros clientes desde el <strong>planeamiento en la pre producción, el conformado del material, el color grading, damos asesoramiento artístico, realizamos QC de sus piezas</strong> y los acompañamos hasta la <strong>masterización final.</strong>
+                  </p>
+                </div>
+              </Container>
             </div>
+          </Container>
+          <Container size={'medium'} className={'services-data'}>
             <div className="services-block equipment-block">
               <div className="background-image"></div>
               <div className="text-box">
@@ -113,10 +116,70 @@ const StyledServicesPage = styled.section`
       font-size: 22px;
       line-height: 30px;
       font-weight: 300;
+      &:first-child {
+        margin-top: 0;
+        margin-bottom: 0;
+        .services-block {
+          height: 680px;
+          margin-bottom: 0;
+          padding-top: 80px;
+          position: relative;
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            padding-top: 0px;
+          }
+          .background-image {
+            width: 100%;
+            height: inherit;
+            background-color: ${(props) => (props.theme.accent)};
+            /* border-radius: 20px; */
+            background-image: url(${topServicesImage});
+            background-size: 1680px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .default-container {
+            @media screen and (max-width: ${breakpoints.md + 'px'}) {
+              position: absolute;
+              top: 40px;
+              left: 40px;
+              width: 80%;
+              h2 {
+                font-size: 48px !important;
+                line-height: 56px !important;
+              }
+            }
+            .text-box {
+              max-width: 480px;
+              h2 {
+                font-size: 64px;
+                font-weight: 300;
+                line-height: 72px;
+              }
+            }
+          }
+        }
+      }
       .services-block {
         width: 100%;
         position: relative;
         margin-bottom: 88px;
+        .background-image {
+          position: absolute;
+          height: inherit;
+          width: 623px;
+          left: 0;
+          top: 0;
+          background-size: 100%;
+          background-image: url(${daVinciImage});
+          @media screen and (max-width: ${breakpoints.md + 'px'}) {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
         .text-box {
           padding: 24px;
           padding-top: 32px;
@@ -145,23 +208,6 @@ const StyledServicesPage = styled.section`
           flex-direction: column;
           height: unset;
         }
-        .background-image {
-          position: absolute;
-          height: inherit;
-          width: 623px;
-          left: 0;
-          top: 0;
-          background-size: 100%;
-          background-image: url(${daVinciImage});
-          @media screen and (max-width: ${breakpoints.md + 'px'}) {
-            position: relative;
-            width: 100%;
-            height: 320px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-          }
-        }
         .text-box {
           right: 0;
           width: calc(100% - 480px);
@@ -178,7 +224,7 @@ const StyledServicesPage = styled.section`
         }
       }
       .main-block {
-        height: 336px;
+        height: 636px;
         @media screen and (max-width: ${breakpoints.md + 'px'}) {
           margin-bottom: 260px;
         }
@@ -188,8 +234,8 @@ const StyledServicesPage = styled.section`
           background-color: ${(props) => (props.theme.accent)};
           border-radius: 20px;
           background-image: url(${topServicesImage});
-          background-size: 160%;
-          background-position: center;
+          background-size: cover;
+          background-position: center 20%;
         }
         .text-box {
           width: 380px;
@@ -198,7 +244,8 @@ const StyledServicesPage = styled.section`
           position: absolute;
           @media screen and (max-width: ${breakpoints.md + 'px'}) {
             width: calc(100% - 48px);
-            top: 200px;
+            position: absolute;
+            /* top: 200px; */
           }
         }
       }
@@ -224,10 +271,14 @@ const StyledServicesPage = styled.section`
       .images {
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: ${breakpoints.md + 'px'}) {
+          flex-direction: column;
+        }
         img {
           width: 49%;
           @media screen and (max-width: ${breakpoints.md + 'px'}) {
             width: 100%;
+            margin-top: 32px;
           }
         }
       }
