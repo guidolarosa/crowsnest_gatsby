@@ -14,8 +14,9 @@ import { graphql } from 'gatsby';
 
 const IndexPage = ({ data }) => {
 
-  const allProducts = data.allPrismicColorGrading.nodes[0].dataRaw.body;
+  console.log(data)
 
+  const allProducts = data.allPrismicColorGrading.nodes[0].dataRaw.body;
   const heroImage = data.allPrismicIndex.nodes[0].dataRaw.imagen_del_hero.url;
 
   const videoclips = allProducts.filter((product) => product.primary.product_type == 'videoclip');
@@ -53,14 +54,14 @@ const IndexPage = ({ data }) => {
       contentColor: videoContentColors.cortometrajes,
     },
     {
-      title: 'Reels - Cursos',
-      content: reels,
-      contentColor: videoContentColors.reels,
-    },
-    {
       title: 'Documentales',
       content: documentales,
       contentColor: videoContentColors.documentales,
+    },
+    {
+      title: 'Reels - Cursos',
+      content: reels,
+      contentColor: videoContentColors.reels,
     },
   ];
 
