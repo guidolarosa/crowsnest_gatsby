@@ -54,6 +54,7 @@ const AboutPage = ({ data }) => {
       <StyledAboutPage topImage={heroImage}>
           <Helmet>
             <title>Crows Nest - Professional Color Grading | Nosotros</title>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
           </Helmet>
           <Header>
           </Header>

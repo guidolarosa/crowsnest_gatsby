@@ -19,6 +19,7 @@ const ContactPage = () => (
     <StyledContactPage>
         <Helmet>
           <title>Crows Nest - Professional Color Grading | Contactanos</title>
+          <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
         </Helmet>
         <Header/>
         <main>

@@ -23,6 +23,7 @@ const ServicesPage = () => (
     <StyledServicesPage>
           <Helmet>
             <title>Crows Nest - Professional Color Grading | Nuestros servicios</title>
+            <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
           </Helmet>
         <Header>
           {/* <div className={'services-hero'} style={{backgroundImage: `url(${backgroundImage})`}}></div> */}
