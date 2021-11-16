@@ -52,9 +52,9 @@ const ServicesPage = () => (
                 <p>
                   Utilizamos soft de color correction DaVinci Resolve Studio y Assimilate Scratch VR, instrumentos de medición de señales portables y tecnología de calibración de monitores X-Rite.
                 </p>
-                <a className="show-full-list-link" href="#">
+                {/* <a className="show-full-list-link" href="#">
                   Ver listado completo de equipos
-                </a>
+                </a> */}
               </div>
             </div>
             <section className="salas">
